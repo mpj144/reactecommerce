@@ -1,0 +1,12 @@
+.app-header {
+    align-items: center;
+    background: rgb(104, 5, 233);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
