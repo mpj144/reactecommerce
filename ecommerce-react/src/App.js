@@ -1,15 +1,33 @@
 import './App.css';
-import Menu from './components/Menu/Menu'
-const  App = () => {
 
- 
-    
+import Header from './components/header/header';
+import Container from './components/container/container';
+
+import Footer from './/components/footer/footer';
+
+const App = () => {
+
   return (
-  <div>
-    <Menu/>
-  </div>
+
+
+    <>
+      <Header />
+      <Container>
+
+        <div >
+
+          Principal
+
+          </div>
+
+      </Container>
+      <Footer />
+    </>
+
   );
-  
+
+
+
 }
 
 export default App;

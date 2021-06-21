@@ -3,20 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Cliente from './components/Cliente/Cliente'
-import Produto from './components/Produto/Produto'
-import Categoria from './components/Categoria/Categoria'
-import Funcionario from './components/Funcionario/Funcionario'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Cliente from './pages/Cliente/Cliente'
+import Produto from './pages/Produto/Produto'
+import Categoria from './pages/Categoria/Categoria'
+import Funcionario from './pages/Funcionario/Funcionario'
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/" exact={true} component={App}/>
-      <Route path="/Cliente" component={Cliente}/>
-      <Route path="/Produto" component={Produto}/>
-      <Route path="/Categoria" component={Categoria}/>
-      <Route path="/Funcionario" component={Funcionario}/>
+      <Route path="/" exact={true} component={App} />
+      <Route path="/Cliente" component={Cliente} />
+      <Route path="/Produto" component={Produto} />
+      <Route path="/Categoria" component={Categoria} />
+      <Route path="/Funcionario" component={Funcionario} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
