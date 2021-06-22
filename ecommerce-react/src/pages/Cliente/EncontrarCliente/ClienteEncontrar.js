@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {DataTable} from 'primereact/datatable';
 import {Column} from 'primereact/column';
-import ClienteService from '../../services/ClienteService'
+import ClienteService from '../../../services/ClienteService'
 
-const TableClientes = (props) => {
+const ClienteEncontar = (props) => {
     const [clientes,setClientes] = useState([]);
     const clienteService = new ClienteService();
 
     useEffect(()=>{
-        clienteService.getCliente().then(data => setClientes(data));
+        clienteService.getClienteId().then(data => setClientes(data));
     },[]);
 
 
@@ -28,4 +28,4 @@ const TableClientes = (props) => {
     )
 }
 
-export default TableClientes
+export default ClienteEncontar

@@ -36,10 +36,10 @@ const SubMenuCliente = () => {
             {/* note: will still have to think about this implementation */}
             {/* <div style={{ position: "absolute", height: "500px", width: "50px", backgroundColor: "#049DBF", zIndex: "-1" }}></div> */}
 
-            <Link className={currCount === 0 && 'active'} href="#listar" to="/Lista">
+            <Link className={currCount === 0 && 'active'} href="#listar" to="/ListarCliente">
                 <span className={currCount === 0 && 'text-active'}><i class="fas fa-arrow-right"></i> Listar</span>
             </Link>
-            <a className={currCount === 1 && 'active'} href="#achar" >
+            <a className={currCount === 1 && 'active'} href="#achar" to="/EncontrarCliente">
                 <span className={currCount === 1 && 'text-active'}><i class="fas fa-arrow-right"></i> Achar</span>
             </a>
             <a className={currCount === 2 && 'active'} href="#deletar" >
