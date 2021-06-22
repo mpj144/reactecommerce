@@ -29,27 +29,27 @@ const SubMenuCliente = () => {
     }, []);
 
     return (
-        <div className="container">
-            {/* <h1>Sidebar animation example</h1> */}
-            <div className="sidebar">
-                <div style={{ top: `${highlightTopPosition}px` }} className={`sidebar__highlight ${startAnimate && 'sidebar__highlight__animate'}`}></div>
-                {/* note: will still have to think about this implementation */}
-                {/* <div style={{ position: "absolute", height: "500px", width: "50px", backgroundColor: "#049DBF", zIndex: "-1" }}></div> */}
 
-                <Link className={currCount === 0 && 'active'} href="#listar" to="/Lista">
-                    <span className={currCount === 0 && 'text-active'}><i class="fas fa-arrow-right"></i> Listar</span>
-                </Link>
-                <a className={currCount === 1 && 'active'} href="#achar" >
-                    <span className={currCount === 1 && 'text-active'}><i class="fas fa-arrow-right"></i> Achar</span>
-                </a>
-                <a className={currCount === 2 && 'active'} href="#deletar" >
-                    <span className={currCount === 2 && 'text-active'}><i class="fas fa-arrow-right"></i> Deletar</span>
-                </a>
-                <a className={currCount === 3 && 'active'} href="#atualizar">
-                    <span className={currCount === 3 && 'text-active'}><i class="fas fa-arrow-right"></i> Atualizar</span>
-                </a>
-            </div>
+
+        <div className="sidebar">
+            <div style={{ top: `${highlightTopPosition}px` }} className={`sidebar__highlight ${startAnimate && 'sidebar__highlight__animate'}`}></div>
+            {/* note: will still have to think about this implementation */}
+            {/* <div style={{ position: "absolute", height: "500px", width: "50px", backgroundColor: "#049DBF", zIndex: "-1" }}></div> */}
+
+            <Link className={currCount === 0 && 'active'} href="#listar" to="/Lista">
+                <span className={currCount === 0 && 'text-active'}><i class="fas fa-arrow-right"></i> Listar</span>
+            </Link>
+            <a className={currCount === 1 && 'active'} href="#achar" >
+                <span className={currCount === 1 && 'text-active'}><i class="fas fa-arrow-right"></i> Achar</span>
+            </a>
+            <a className={currCount === 2 && 'active'} href="#deletar" >
+                <span className={currCount === 2 && 'text-active'}><i class="fas fa-arrow-right"></i> Deletar</span>
+            </a>
+            <a className={currCount === 3 && 'active'} href="#atualizar">
+                <span className={currCount === 3 && 'text-active'}><i class="fas fa-arrow-right"></i> Atualizar</span>
+            </a>
         </div>
+
     )
 }
 
