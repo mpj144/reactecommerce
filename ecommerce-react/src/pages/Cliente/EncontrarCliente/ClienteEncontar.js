@@ -9,7 +9,7 @@ const ClienteEncontrar = () => (
         <Header />
         <Container>
             <SubMenuCliente></SubMenuCliente>
-            <ClienteId/>
+            <ClienteId id={2}/>
         </Container>
         <Footer />
     </>

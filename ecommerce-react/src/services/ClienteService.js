@@ -5,8 +5,20 @@ export default class ClienteService{
         return api.get('/cliente').then(res => res.data);
     }
 
-    getCienteId(){
-        return api.get('/clinte/'+1).then(res => res.data);
+    getCienteId(id){
+        return api.get('/cliente/'+id).then(res => res.data);
+    }
+
+    deleteClienteId(id){
+        return api.delete('/cliente'+id).then(res => res.data)
+    }
+
+    createCliente(){
+
+    }
+
+    updateCliente(){
+        
     }
 }
 

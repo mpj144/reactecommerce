@@ -1,28 +1,20 @@
 import React, {useState, useEffect} from 'react';
-import {DataTable} from 'primereact/datatable';
-import {Column} from 'primereact/column';
 import ClienteService from '../../services/ClienteService'
 
 const ClienteId = (props) => {
-    const [clientes,setClientes] = useState([]);
+    const [cliente, setCliente] = useState(0);
     const clienteService = new ClienteService();
+    const id = props.id
 
     useEffect(()=>{
-        clienteService.getClienteId().then(data => setClientes(data));
-    },[]);
-
-
+    
+    clienteService.getCienteId(id).then(res =>setCliente(res ));//.then(data => setClientes(data)); 
+     },[]);
+     
     return(
         <div>
             <div>
-                <DataTable className="card" value={clientes}>
-                    <Column field="id" header="Id"></Column>
-                    <Column field="nome" header="Nome"></Column>
-                    <Column field="usuario" header="User"></Column>
-                    <Column field="email" header="Email"></Column>
-                    <Column field="cpf" header="CPF"></Column>
-                    <Column field="dataNascimento" header="Aniversário"></Column>
-                </DataTable>
+                <h1>{cliente.nome}</h1>
             </div>
         </div>
     )
