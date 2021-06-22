@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Funcionario.module.css';
+
 
 
 import Header from '../../components/header/header';
@@ -14,7 +14,7 @@ const Funcionario = () => (
     <Header />
     <Container>
       <SubMenuFuncionario></SubMenuFuncionario>
-      <div className={styles.Funcionario}>
+      <div >
 
         <h1>Funcionario Principal</h1>
 
