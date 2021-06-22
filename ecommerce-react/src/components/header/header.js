@@ -13,7 +13,7 @@ const Header = () => (
 
         <img src={logo} alt="logo" />
 
-        <Menu />
+        <Menu/>
 
     </header>
 )

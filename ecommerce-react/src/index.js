@@ -8,6 +8,7 @@ import Cliente from './pages/Cliente/Cliente'
 import Produto from './pages/Produto/Produto'
 import Categoria from './pages/Categoria/Categoria'
 import Funcionario from './pages/Funcionario/Funcionario'
+import ClienteLista from './pages/ClienteLista/ClienteLista'
 
 ReactDOM.render(
   <BrowserRouter>
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Route path="/Produto" component={Produto} />
       <Route path="/Categoria" component={Categoria} />
       <Route path="/Funcionario" component={Funcionario} />
+      <Route path="/Lista" component={ClienteLista} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')

@@ -1,5 +1,6 @@
 import React from 'react';
 import './subMenuCliente.scss'
+import { Link } from 'react-router-dom';
 
 const SubMenuCliente = () => {
     const [startAnimate, setStartAnimate] = React.useState(false);
@@ -35,17 +36,17 @@ const SubMenuCliente = () => {
                 {/* note: will still have to think about this implementation */}
                 {/* <div style={{ position: "absolute", height: "500px", width: "50px", backgroundColor: "#049DBF", zIndex: "-1" }}></div> */}
 
-                <a className={currCount === 0 && 'active'} href="#home" onClick={() => onClickTab(0)}>
-                    <span className={currCount === 0 && 'text-active'}><i class="fas fa-arrow-right"></i> Home</span>
+                <Link className={currCount === 0 && 'active'} href="#listar" to="/Lista">
+                    <span className={currCount === 0 && 'text-active'}><i class="fas fa-arrow-right"></i> Listar</span>
+                </Link>
+                <a className={currCount === 1 && 'active'} href="#achar" >
+                    <span className={currCount === 1 && 'text-active'}><i class="fas fa-arrow-right"></i> Achar</span>
                 </a>
-                <a className={currCount === 1 && 'active'} href="#news" onClick={() => onClickTab(1)}>
-                    <span className={currCount === 1 && 'text-active'}><i class="fas fa-arrow-right"></i> News</span>
+                <a className={currCount === 2 && 'active'} href="#deletar" >
+                    <span className={currCount === 2 && 'text-active'}><i class="fas fa-arrow-right"></i> Deletar</span>
                 </a>
-                <a className={currCount === 2 && 'active'} href="#contact" onClick={() => onClickTab(2)}>
-                    <span className={currCount === 2 && 'text-active'}><i class="fas fa-arrow-right"></i> Contact</span>
-                </a>
-                <a className={currCount === 3 && 'active'} href="#about" onClick={() => onClickTab(3)}>
-                    <span className={currCount === 3 && 'text-active'}><i class="fas fa-arrow-right"></i> About</span>
+                <a className={currCount === 3 && 'active'} href="#atualizar">
+                    <span className={currCount === 3 && 'text-active'}><i class="fas fa-arrow-right"></i> Atualizar</span>
                 </a>
             </div>
         </div>
