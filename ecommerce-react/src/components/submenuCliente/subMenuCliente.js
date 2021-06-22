@@ -39,9 +39,9 @@ const SubMenuCliente = () => {
             <Link className={currCount === 0 && 'active'} href="#listar" to="/ListarCliente">
                 <span className={currCount === 0 && 'text-active'}><i class="fas fa-arrow-right"></i> Listar</span>
             </Link>
-            <a className={currCount === 1 && 'active'} href="#achar" to="/EncontrarCliente">
+            <Link className={currCount === 1 && 'active'} href="#achar" to="/EncontrarCliente">
                 <span className={currCount === 1 && 'text-active'}><i class="fas fa-arrow-right"></i> Achar</span>
-            </a>
+            </Link>
             <a className={currCount === 2 && 'active'} href="#deletar" >
                 <span className={currCount === 2 && 'text-active'}><i class="fas fa-arrow-right"></i> Deletar</span>
             </a>

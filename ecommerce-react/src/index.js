@@ -18,8 +18,8 @@ import FuncionarioAtualizar from './pages/Funcionario/AtualizarFuncionario/Atual
 import FuncionarioCadastrar from './pages/Funcionario/CadastroFuncionario/FuncionarioCadastrar'
 
 import Cliente from './pages/Cliente/Cliente'
-import ClienteLista from './pages/Cliente/ListaCliente/ClienteListar'
-import ClienteEncontrar from './pages/Cliente/EncontrarCliente/ClienteEncontrar'
+import ClienteListar from './pages/Cliente/ListaCliente/ClienteListar'
+import ClienteEncontrar from './pages/Cliente/EncontrarCliente/ClienteEncontar'
 import ClienteDeletar from './pages/Cliente/DeletarCliente/ClienteDeletar'
 import ClienteAtualizar from './pages/Cliente/AtualizarCliente/ClienteAtualizar'
 import ClienteCadastrar from './pages/Cliente/CadastrarCliente/ClienteCadastrar'
@@ -32,7 +32,6 @@ ReactDOM.render(
       
       <Route path="/Produto" component={Produto} />
       <Route path="/Categoria" component={Categoria} />
-      <Route path="/Lista" component={ClienteLista} />
 
       <Route path="/Funcionario" component={Funcionario} />
       <Route path="/ListarFuncionario" component={FuncionarioLista} />
