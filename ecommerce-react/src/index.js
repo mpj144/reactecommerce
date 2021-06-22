@@ -7,8 +7,15 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Cliente from './pages/Cliente/Cliente'
 import Produto from './pages/Produto/Produto'
 import Categoria from './pages/Categoria/Categoria'
-import Funcionario from './pages/Funcionario/Funcionario'
+
 import ClienteLista from './pages/ClienteLista/ClienteLista'
+
+import Funcionario from './pages/Funcionario/Funcionario'
+import FuncionarioLista from './pages/Funcionario/ListarFuncionario/ListarFuncionario'
+import FuncionarioEncontrar from './pages/Funcionario/EncontrarFuncionario/FuncionarioEncontrar'
+import FuncionarioDeletar from './pages/Funcionario/DeletarFuncionario/FuncionarioDeletar'
+import FuncionarioAtualizar from './pages/Funcionario/AtualizarFuncionario/AtualizarFuncionario'
+import FuncionarioCadastrar from './pages/Funcionario/CadastroFuncionario/FuncionarioCadastrar'
 
 ReactDOM.render(
   <BrowserRouter>
@@ -17,8 +24,15 @@ ReactDOM.render(
       <Route path="/Cliente" component={Cliente} />
       <Route path="/Produto" component={Produto} />
       <Route path="/Categoria" component={Categoria} />
-      <Route path="/Funcionario" component={Funcionario} />
       <Route path="/Lista" component={ClienteLista} />
+
+      <Route path="/Funcionario" component={Funcionario} />
+      <Route path="/ListarFuncionario" component={FuncionarioLista} />
+      <Route path="/EncontrarFuncionario" component={FuncionarioEncontrar} />
+      <Route path="/DeletarFuncionario" component={FuncionarioDeletar} />
+      <Route path="/AtualizarFuncionario" component={FuncionarioAtualizar} />
+      <Route path="/CadastrarFuncionario" component={FuncionarioCadastrar} />
+
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
