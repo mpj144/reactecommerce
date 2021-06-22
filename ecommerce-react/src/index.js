@@ -6,9 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Produto from './pages/Produto/Produto'
+import ProdutoLista from './pages/Produto/ListarProduto/ListarProduto'
+import ProdutoEncontrar from './pages/Produto/EncontrarProduto/ProdutoEncontrar'
+import ProdutoDeletar from './pages/Produto/DeletarProduto/ProdutoDeletar'
+import ProdutoAtualizar from './pages/Produto/AtualizarProduto/AtualizarProduto'
+import ProdutoCadastrar from './pages/Produto/CadastroProduto/ProdutoCadastrar'
+
 import Categoria from './pages/Categoria/Categoria'
-
-
 
 import Funcionario from './pages/Funcionario/Funcionario'
 import FuncionarioLista from './pages/Funcionario/ListarFuncionario/ListarFuncionario'
@@ -31,6 +35,12 @@ ReactDOM.render(
       <Route path="/" exact={true} component={App} />
       
       <Route path="/Produto" component={Produto} />
+      <Route path="/ListarProduto" component={ProdutoLista} />
+      <Route path="/EncontrarProduto" component={ProdutoEncontrar} />
+      <Route path="/DeletarProduto" component={ProdutoDeletar} />
+      <Route path="/AtualizarProduto" component={ProdutoAtualizar} />
+      <Route path="/CadastrarProduto" component={ProdutoCadastrar} />
+
       <Route path="/Categoria" component={Categoria} />
 
       <Route path="/Funcionario" component={Funcionario} />

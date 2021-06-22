@@ -6,19 +6,22 @@ import Header from '../../components/header/header';
 import Container from '../../components/container/container';
 import Footer from '../../components/footer/footer';
 
+import SubMenuProduto from '../../components/submenuProduto/subMenuProduto'
+
 const Produto = () => (
   <>
     <Header />
     <Container>
-
+      <SubMenuProduto></SubMenuProduto>
       <div className={styles.Produto}>
 
-        Produto Component
+        <h1>Produto Component</h1>
 
-    </div>
+      </div>
 
     </Container>
     <Footer />
+    
   </>
 
 );
