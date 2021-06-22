@@ -7,16 +7,18 @@ import Header from '../../components/header/header';
 import Container from '../../components/container/container';
 import Footer from '../../components/footer/footer';
 
+import SubMenuFuncionario from '../../components/submenuFuncionario/subMenuFuncionario'
+
 const Funcionario = () => (
   <>
     <Header />
     <Container>
-
+      <SubMenuFuncionario></SubMenuFuncionario>
       <div className={styles.Funcionario}>
 
-        Funcionario Component
+        <h1>Funcionario Principal</h1>
 
-</div>
+      </div>
 
     </Container>
     <Footer />
