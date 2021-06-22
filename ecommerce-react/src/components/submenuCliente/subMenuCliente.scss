@@ -14,13 +14,13 @@ body {
   padding: 0;
   width: 200px;
   background: rgb(104, 5, 233);
-  //position: fixed;
-  position: absolute;
+  position: relative;
+  
   left: 0;
-  top:17%;
-  bottom: 10%; 
+  
+  
   z-index: 0;
-  height: 80%;
+  height: 100%;
   overflow: auto;
   transition: background-color .2s ease-in;
 
@@ -110,8 +110,3 @@ body {
 //   color: white;
 // }
 
-.container {
-  margin-left: 300px;
-  margin-top: 100px;
-  margin-bottom: 100px;
-}

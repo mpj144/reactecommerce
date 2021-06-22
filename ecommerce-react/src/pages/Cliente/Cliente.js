@@ -12,11 +12,14 @@ const Cliente = () => (
   <>
 
     <Header />
+
     <Container>
 
-      <div className={styles.Cliente}>
+      <SubMenuCliente></SubMenuCliente>
 
-        <SubMenuCliente></SubMenuCliente>
+
+
+      <div className={styles.Cliente}>
 
         Cliente Component
 
