@@ -6,7 +6,7 @@ import FuncionarioService from '../../../services/FuncionarioService'
 import { ErrorMessage, Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 
-import './Input.scss'
+import '../Input.scss'
 
 import Modal from 'react-modal'
 import './Modal.scss'
