@@ -7,11 +7,15 @@ import Header from '../../components/header/header';
 import Container from '../../components/container/container';
 import Footer from '../../components/footer/footer';
 
+import SubMenuCategoria from '../../components/submenoCategoria/subMenuCategoria'
+
 const Categoria = () => (
 
   <>
     <Header />
     <Container>
+
+    <SubMenuCategoria></SubMenuCategoria>
 
       <div className={styles.Categoria}>
 
