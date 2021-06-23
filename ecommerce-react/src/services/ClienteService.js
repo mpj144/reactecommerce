@@ -17,8 +17,8 @@ export default class ClienteService{
         return api.post('/cliente', newCliente).then(res => res.data);
     }
 
-    updateCliente(){
-        
+    updateCliente(newCliente,id){
+        return api.put('/cliente/'+id, newCliente).then(res => res.data);
     }
 }
 
