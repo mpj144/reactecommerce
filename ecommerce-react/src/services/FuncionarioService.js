@@ -9,5 +9,8 @@ export default class FuncionarioService {
         return api.get('/funcionario/' + id).then(res => res.data);
     }
 
+    createFuncionario(newFuncionario) {
+        return api.post('/funcionario', newFuncionario).then(res => res.data);
+    }
 
 }
