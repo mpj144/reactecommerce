@@ -1,18 +1,29 @@
+import SubMenuCliente from '../../../components/submenuCliente/subMenuCliente'
 import Header from '../../../components/header/header';
 import Container from '../../../components/container/container';
 import Footer from '../../../components/footer/footer';
-import ClienteId from '../../../components/ClienteId/ClienteId'
-import SubMenuCliente from '../../../components/submenuCliente/subMenuCliente'
+import InputEncontarCliente from './InputEncontrarCliente'
 
-const ClienteEncontrar = () => (
+
+const EncontrarCliente = () => (
     <>
         <Header />
         <Container>
-            <SubMenuCliente></SubMenuCliente>
-            <ClienteId id={2}/>
+
+            <div className="div_sidebar">
+                <SubMenuCliente></SubMenuCliente>
+            </div>
+
+            <div className="div_card">
+                <div className="sub_div">
+                    <h2>Procurar Funcionario</h2>
+                    <InputEncontarCliente />
+                </div>
+            </div>
+
         </Container>
         <Footer />
     </>
 );
 
-export default ClienteEncontrar
+export default EncontrarCliente
