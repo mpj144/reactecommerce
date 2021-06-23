@@ -37,17 +37,20 @@ const SubMenuCliente = () => {
             {/* <div style={{ position: "absolute", height: "500px", width: "50px", backgroundColor: "#049DBF", zIndex: "-1" }}></div> */}
 
             <Link className={currCount === 0 && 'active'} href="#listar" to="/ListarCliente">
-                <span className={currCount === 0 && 'text-active'}><i class="fas fa-arrow-right"></i> Listar</span>
+                <span className={currCount === 0 && 'text-active'}><i class="fas fa-arrow-right"></i>Listar Cliente</span>
             </Link>
             <Link className={currCount === 1 && 'active'} href="#achar" to="/EncontrarCliente">
-                <span className={currCount === 1 && 'text-active'}><i class="fas fa-arrow-right"></i> Achar</span>
+                <span className={currCount === 1 && 'text-active'}><i class="fas fa-arrow-right"></i>Achar Cliente</span>
             </Link>
-            <a className={currCount === 2 && 'active'} href="#deletar" >
-                <span className={currCount === 2 && 'text-active'}><i class="fas fa-arrow-right"></i> Deletar</span>
-            </a>
+            <Link className={currCount === 2 && 'active'} href="#cadastrar" to="/CadastrarCliente">
+                <span className={currCount === 2 && 'text-active'}><i class="fas fa-arrow-right"></i>Cadastrar Cliente</span>
+            </Link>
             <a className={currCount === 3 && 'active'} href="#atualizar">
-                <span className={currCount === 3 && 'text-active'}><i class="fas fa-arrow-right"></i> Atualizar</span>
+                <span className={currCount === 3 && 'text-active'}><i class="fas fa-arrow-right"></i>Atualizar Cliente</span>
             </a>
+            <Link className={currCount === 4 && 'active'} href="#deleter" to='/DeletarCliente'>
+                <span className={currCount === 4 && 'text-active'}><i class="fas fa-arrow-right"></i>Deletar Cliente</span>
+            </Link>
         </div>
 
     )

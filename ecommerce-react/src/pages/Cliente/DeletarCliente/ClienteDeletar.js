@@ -1,18 +1,29 @@
+import SubMenuCliente from '../../../components/submenuCliente/subMenuCliente'
 import Header from '../../../components/header/header';
 import Container from '../../../components/container/container';
 import Footer from '../../../components/footer/footer';
-import ClienteDelete from '../../../components/ClienteDeletar/ClienteDeletar'
-import SubMenuCliente from '../../../components/submenuCliente/subMenuCliente'
+import InputDeletarCliente from './InputDeletarCliente'
+import '../Input.scss'
 
-const ClienteDeletar= () => (
+const DeletarCliente = () => (
     <>
         <Header />
         <Container>
-            <SubMenuCliente></SubMenuCliente>
-            <ClienteDelete id={10}/>
+
+            <div className="div_sidebar">
+                <SubMenuCliente></SubMenuCliente>
+            </div>
+
+            <div className="div_card">
+                <div className="sub_div">
+                    <h2>Deletar Cliente</h2>
+                    <InputDeletarCliente />
+                </div>
+            </div>
+
         </Container>
         <Footer />
     </>
 );
 
-export default ClienteDeletar
+export default DeletarCliente

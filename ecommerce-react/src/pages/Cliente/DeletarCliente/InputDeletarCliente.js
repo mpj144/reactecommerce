@@ -11,14 +11,14 @@ import './Input.scss'
 import Modal from 'react-modal'
 import './Modal.scss'
 
-const InputEncontarCliente = () => {
+const InputDeletarCliente = () => {
 
-    const [cliente, setCliente] = useState(0);
+    var apagou = false;
     const clienteService = new ClienteService();
 
 
     const handleSubmit = values => {
-        clienteService.getCienteId(values.valor).then(resp => setCliente(resp))
+        clienteService.deleteClienteId(values.valor).then(apagou=true)
     }
     const validations = yup.object().shape({
         id: yup.number().min(1).required()
@@ -37,20 +37,18 @@ const InputEncontarCliente = () => {
                             <ErrorMessage component="span" name="valor" className="Form_Error" />
                         </div>
 
-                        <button className="Form_Btn" type="submit" onClick={() => setModalIsOpen(true)}>Procurar</button>
+                        <button className="Form_Btn" type="submit" onClick={() => setModalIsOpen(true)}>Deletar</button>
                     </div>
+                   
 
-                    <Modal isOpen={Boolean(cliente)} className="Modal_Form">
+
+                    <Modal isOpen={apagou} className="Modal_Form">
 
 
-                        <p><strong>ID: </strong>{cliente.id}</p>
-                        <p><strong>Nome: </strong>{cliente.nome}</p>
-                        <p><strong>Usuario: </strong>{cliente.usuario}</p>
-                        <p><strong>E-mail: </strong>{cliente.email}</p>
-                        <p><strong>CPF: </strong>{cliente.cpf}</p>
+                        <p>Cliente Deltado</p>
                         
 
-                        <button onClick={() => setCliente(false)} >Fechar</button>
+                        <button onClick={() => apagou=false} >Fechar</button>
 
                     </Modal>
 
@@ -62,4 +60,4 @@ const InputEncontarCliente = () => {
     )
 }
 
-export default InputEncontarCliente
+export default InputDeletarCliente
