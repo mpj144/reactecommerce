@@ -25,13 +25,16 @@ const InputCadastrarFuncionario = () => {
 
         console.log('valor da data: ', data)
 
-        funcionarioService.createFuncionario(data).then((resp) => alert('Funcionario cadastrado com sucesso'), history.push('/ListarFuncionario')).catch(error => console.log('Deu errado', error))
+        funcionarioService.createFuncionario(data).then((resp) => { history.push('/ListarFuncionario') }).catch(error => console.log('Deu errado', error))
     }
     const validations = yup.object().shape({
-        nomeFunc: yup.string().required('Informe o nome'),
+        nomeFunc: yup.string()
+            .min(5, 'Nome muito pequeno!')
+            .max(60, 'Nome muito grande!')
+            .required('Informe o nome'),
         cpf: yup
             .string()
-            .matches(/^[0-9]$/, 'Só pode conter números!')
+            .matches(/^['0'-'1'-'2'-'3'-'4'-'5'-'6'-'7'-'8'-'9']+[''0'-'1'-'2'-'3'-'4'-'5'-'6'-'7'-'8'-'9']$/, 'Só pode conter números!')
             .min(11, 'Número de CPF muito pequeno!')
             .max(11, 'Número de CPF muito grande!')
             .required('Campo obrigatório.')
@@ -46,12 +49,12 @@ const InputCadastrarFuncionario = () => {
                 <Form className="Form">
 
                     <div className="Form_Group">
-                        <Field name="nomeFunc" className="Form_Field" placeholder="Nome" />
+                        <Field name="nomeFunc" className="Form_Field" placeholder="Nome" /> <br />
                         <ErrorMessage component="span" name="nomeFunc" className="Form_Error" />
                     </div>
 
                     <div className="Form_Group">
-                        <Field name="cpf" className="Form_Field" placeholder="CPF" />
+                        <Field name="cpf" className="Form_Field" placeholder="CPF" /> <br />
                         <ErrorMessage component="span" name="cpf" className="Form_Error" />
                     </div>
 

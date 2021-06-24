@@ -14,23 +14,17 @@ const SubMenuCliente = () => {
 
 
         <div className="sidebar">
+
             <Link className={currCount === 0} href="#listar" onClick={() => onClickTab(0)} to="/ListarFuncionario">
                 <span className={currCount === 0}><i class="fas fa-arrow-right"></i>Listar Funcionario</span>
             </Link>
+
             <Link className={currCount === 1} href="#achar" onClick={() => onClickTab(1)} to="/EncontrarFuncionario">
                 <span className={currCount === 1}><i class="fas fa-arrow-right"></i>Achar Funcionario</span>
             </Link>
 
             <Link className={currCount === 2} href="#deletar" onClick={() => onClickTab(2)} to="/CadastrarFuncionario">
                 <span className={currCount === 2}><i class="fas fa-arrow-right"></i>Cadastrar Funcionario</span>
-            </Link>
-
-            <Link className={currCount === 3} href="#atualizar" onClick={() => onClickTab(3)} to="/AtualizarFuncionario">
-                <span className={currCount === 3}><i class="fas fa-arrow-right"></i>Atualizar Funcionario</span>
-            </Link>
-
-            <Link className={currCount === 4} href="#deletar" onClick={() => onClickTab(4)} to="/DeletarFuncionario">
-                <span className={currCount === 4}><i class="fas fa-arrow-right"></i>Deletar Funcionario</span>
             </Link>
 
         </div>
