@@ -17,18 +17,16 @@ const InputAtualizarCategoria = () => {
     const handleSubmit = values => {
 
         const data = {
-                id: values.id,
                 nome: values.nome,
                 descricao: values.descricao
             }
     
 
-        console.log('valor da data: ', data)
+        console.log(data)
 
-        categoriaService.updateCategoria(data,values.id).then((resp) => alert('Categoria atualizado com sucesso'), history.push('/ListarCategoria')).catch(error => console.log('Deu errado', error))
+        categoriaService.updateCategoria(data, values.id).then((resp) => alert('Categoria atualizado com sucesso'), history.push('/ListarCategoria')).catch(error => console.log('Deu errado', error))
         }
     const validations = yup.object().shape({
-        id: yup.number().min(1).required(),
         nome: yup.string()
                         .min(2,'Nome deve conter 5 ou mais caracteres')
                         .max(60,'Nome deve conter 60 ou menos caracteres')
@@ -47,15 +45,15 @@ const InputAtualizarCategoria = () => {
                 <Form className="Form">                       
                         <div className="Caixa">
                             <div className="Form_Group">
-                                <Field name="id" className="Form_Field" placeholder="código" />
+                                <Field name="id" className="Form_Field" placeholder="id" />
+                                <ErrorMessage component="span" name="id" className="Form_Error" />
+                            </div>
+                            <div className="Form_Group">
+                                <Field name="nome" className="Form_Field" placeholder="Nome" />
                                 <ErrorMessage component="span" name="nome" className="Form_Error" />
                             </div>
                             <div className="Form_Group">
-                                <Field name="Nome" className="Form_Field" placeholder="nome" />
-                                <ErrorMessage component="span" name="nome" className="Form_Error" />
-                            </div>
-                            <div className="Form_Group">
-                                <textarea name="descricao" className="Form_Field" placeholder="descrição" />
+                                <Field name="descricao" className="Form_Field" placeholder="descricao" />
                                 <ErrorMessage component="span" name="descricao" className="Form_Error" />
                             </div>
                             <button className="Form_Btn" type="submit">Atualizar</button>

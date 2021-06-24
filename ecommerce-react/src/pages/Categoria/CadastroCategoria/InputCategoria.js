@@ -16,16 +16,16 @@ const InputCadastrarCategoria = () => {
     const handleSubmit = values => {
 
         const data = {
-            nome: values.nomeCategoria,
+            nome: values.nome,
             descricao: values.descricao
         }
 
-        console.log('valor da data: ', data)
+        console.log(data)
 
         categoriaService.createCategoria(data).then((resp) => alert('Categoria cadastrado com sucesso'), history.push('/ListarCategoria')).catch(error => console.log('Deu errado', error))
     }
     const validations = yup.object().shape({
-        nomecategoria: yup.string().required('Informe o nome'),
+        nome: yup.string().required('Informe o nome'),
         descricao: yup.string().required('Campo obrigatório.')
     });
 
@@ -34,11 +34,14 @@ const InputCadastrarCategoria = () => {
         <>
             <p>Preencha os campos abaixo para cadastrar um novo categoria</p>
 
-            <Formik initialValues={{ nomecategoria: '', descricao: '' }} onSubmit={handleSubmit} validationSchema={validations}  >
+            <Formik initialValues={{ nome: '', descricao: '' }} onSubmit={handleSubmit} validationSchema={validations}  >
                 <Form className="Form">
 
+                <div className="produtoCampo">
+                    <p>Informações do Produto</p>
+
                     <div className="Form_Group">
-                        <Field name="nomecategoria" className="Form_Field" placeholder="Nome" />
+                        <Field name="nome" className="Form_Field" placeholder="Nome" />
                         <ErrorMessage component="span" name="nomecategoria" className="Form_Error" />
                     </div>
 
@@ -48,7 +51,7 @@ const InputCadastrarCategoria = () => {
                     </div>
 
                     <button className="Form_Btn" type="submit">Cadastrar</button>
-
+                </div>
                 </Form>
             </Formik>
 

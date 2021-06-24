@@ -5,12 +5,12 @@ export default class CategoriaService{
         return api.get('/categoria').then(res => res.data);
     }
 
-    getCategoriaById(){
-        return api.get('/categoria/'+1).then(res => res.data);
+    getCategoriaById(id){
+        return api.get('/categoria/'+id).then(res => res.data);
     }
 
-    createcategoria(newCategoria) {
-        return api.post('/categpria', newCategoria).then(res => res.data);
+    createCategoria(newCategoria) {
+        return api.post('/categoria', newCategoria).then(res => res.data);
     }
 
     updateCategoria(newCategoria,id){
