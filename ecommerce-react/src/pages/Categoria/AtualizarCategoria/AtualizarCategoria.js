@@ -1,23 +1,23 @@
-import SubMenuCliente from '../../../components/submenuCliente/subMenuCliente'
+import SubMenuCategoria from '../../../components/submenoCategoria/subMenuCategoria'
 import Header from '../../../components/header/header';
 import Container from '../../../components/container/container';
 import Footer from '../../../components/footer/footer';
-import InputAtualizarCliente from './inputAtualizarCliente'
+import InputAtualizarCategoria from './inputAtualizarCategoria'
 
 
-const ClienteAtualizar = () => (
+const CategoriaAtualizar = () => (
     <>
         <Header />
         <Container>
 
             <div className="div_sidebar">
-                <SubMenuCliente></SubMenuCliente>
+                <SubMenuCategoria></SubMenuCategoria>
             </div>
 
             <div className="div_card">
                
-                    <h2>Cadastrar Cliente</h2>
-                    <InputAtualizarCliente />
+                    <h2>Atualizar Categoria</h2>
+                    <InputAtualizarCategoria />
                 
             </div>
 
@@ -26,4 +26,4 @@ const ClienteAtualizar = () => (
     </>
 );
 
-export default ClienteAtualizar
+export default CategoriaAtualizar

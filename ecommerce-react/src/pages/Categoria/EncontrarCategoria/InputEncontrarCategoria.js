@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import ClienteService from '../../../services/ClienteService'
+import CategoriaService from '../../../services/CategoriaService'
 
 import { ErrorMessage, Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
@@ -11,14 +11,15 @@ import './Input.scss'
 import Modal from 'react-modal'
 import './Modal.scss'
 
-const InputEncontarCliente = () => {
+const InputEncontarCategoria = () => {
 
-    const [cliente, setCliente] = useState(0);
-    const clienteService = new ClienteService();
+    const [categorias, setCategorias] = useState(0);
+    const categoriaService = new CategoriaService();
 
 
     const handleSubmit = values => {
-        clienteService.getCienteId(values.valor).then(resp => setCliente(resp))
+
+        categoriaService.getCategoriaById(values.valor).then(resp => setCategorias(resp))
     }
     const validations = yup.object().shape({
         id: yup.number().min(1).required()
@@ -27,7 +28,7 @@ const InputEncontarCliente = () => {
 
     return (
         <>
-            <p>Digite o id do Cliente desejado, abaixo!</p>
+            <p>Digite o código do Categoria desejado, abaixo!</p>
 
             <Formik onSubmit={handleSubmit} validationSchema={validations} initialValues={[]} >
                 <Form className="Form">
@@ -36,21 +37,20 @@ const InputEncontarCliente = () => {
                             <Field name="valor" className="Form_Field" />
                             <ErrorMessage component="span" name="valor" className="Form_Error" />
                         </div>
-
-                        <button className="Form_Btn" type="submit" onClick={() => setModalIsOpen(true)}>Procurar</button>
                     </div>
 
-                    <Modal isOpen={Boolean(cliente)} className="Modal_Form">
+                    <button className="Form_Btn" type="submit" onClick={() => setModalIsOpen(true)}>Procurar</button>
 
 
-                        <p><strong>ID: </strong>{cliente.id}</p>
-                        <p><strong>Nome: </strong>{cliente.nome}</p>
-                        <p><strong>Usuario: </strong>{cliente.usuario}</p>
-                        <p><strong>E-mail: </strong>{cliente.email}</p>
-                        <p><strong>CPF: </strong>{cliente.cpf}</p>
-                        
+                    <Modal isOpen={Boolean(categorias)} className="Modal_Form">
 
-                        <button onClick={() => setCliente(false)} >Fechar</button>
+
+                        <p><strong>Código: </strong>{categorias.id}</p>
+                        <p><strong>Nome: </strong>{categorias.nome}</p>
+                        <p><strong>Descrição: </strong>{categorias.descricao}</p>
+
+
+                        <button onClick={() => setCategorias(false)} >Fechar</button>
 
                     </Modal>
 
@@ -62,4 +62,4 @@ const InputEncontarCliente = () => {
     )
 }
 
-export default InputEncontarCliente
+export default InputEncontarCategoria

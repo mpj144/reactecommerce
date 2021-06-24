@@ -10,15 +10,15 @@ export default class ClienteService{
     }
 
     deleteClienteId(id){
-        return api.delete('/cliente'+id).then(res => res.data)
+        return api.delete('/cliente/'+id).then(res => res.data)
     }
 
-    createCliente(){
-
+    createCliente(newCliente){
+        return api.post('/cliente', newCliente).then(res => res.data);
     }
 
-    updateCliente(){
-        
+    updateCliente(newCliente,id){
+        return api.put('/cliente/'+id, newCliente).then(res => res.data);
     }
 }
 

@@ -6,6 +6,7 @@
     text-align: center;
     border-radius: 8px;
     transition: all 0.2s linear;
+    margin-bottom: 10px;
 }
 
 .Form_Field:focus{
@@ -31,8 +32,4 @@
 
 .Form_Btn:active{
     transform: translateY(4px);
-}
-.caixa{
-   align-content: center;
-
 }

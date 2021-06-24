@@ -13,6 +13,11 @@ import ProdutoAtualizar from './pages/Produto/AtualizarProduto/AtualizarProduto'
 import ProdutoCadastrar from './pages/Produto/CadastroProduto/ProdutoCadastrar'
 
 import Categoria from './pages/Categoria/Categoria'
+import CategoriaLista from './pages/Categoria/ListaCategoria/ListaCategoria'
+import CategoriaEncontrar from './pages/Categoria/EncontrarCategoria/CategoriaEncontrar'
+import CategoriaDeletar from './pages/Categoria/DeletarCategoria/CategoriaDeletar'
+import CategoriaAtualizar from './pages/Categoria/AtualizarCategoria/AtualizarCategoria'
+import CategoriaCadastrar from './pages/Categoria/CadastroCategoria/CategoriaCadastrar'
 
 import Funcionario from './pages/Funcionario/Funcionario'
 import FuncionarioLista from './pages/Funcionario/ListarFuncionario/ListarFuncionario'
@@ -42,6 +47,11 @@ ReactDOM.render(
       <Route path="/CadastrarProduto" component={ProdutoCadastrar} />
 
       <Route path="/Categoria" component={Categoria} />
+      <Route path="/ListarCategoria" component={CategoriaLista} />
+      <Route path="/EncontrarCategoria" component={CategoriaEncontrar} />
+      <Route path="/AtualizarCategoria" component={CategoriaAtualizar} />
+      <Route path="/CadastrarCategoria" component={CategoriaCadastrar} />
+      <Route path="/DeletarCategoria" component={CategoriaDeletar} />
 
       <Route path="/Funcionario" component={Funcionario} />
       <Route path="/ListarFuncionario" component={FuncionarioLista} />
