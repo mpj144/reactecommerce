@@ -1,0 +1,36 @@
+.datatable-templating-demo .table-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px
+}
+
+.datatable-templating-demo .product-image {
+    width: 100px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.coluna {
+    border-bottom: 1px solid rgb(110, 102, 102);
+    align-items: center;
+    text-align: center;
+}
+
+.card{
+    width: 100%;
+    justify-content: center;
+}
+
+.p-datatable-wrapper{
+    width: 100% !important;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+}
+
+table{
+    width: 80% !important;
+    align-self: center;
+
+}

@@ -18,6 +18,7 @@ const TableProdutos = (props) => {
                 <DataTable className="card" value={produtos}>
                     <Column field="id" header="Id"></Column>
                     <Column field="nome" header="Nome"></Column>
+                    <Column field="valor" header="Valor"></Column>
                 </DataTable>
             </div>
         </div>

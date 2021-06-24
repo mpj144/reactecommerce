@@ -1,0 +1,35 @@
+.Form_Field{
+    border: none;
+    background: rgba(104, 5, 233, 0.50) ;
+    padding: 1rem;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.2s linear;
+    margin-bottom: 10px;
+}
+
+.Form_Field:focus{
+    box-shadow: 0 4px 4px rgb(24, 23, 23);
+    outline: none;
+}
+
+.Form_Error{
+    color: #ff8080; 
+    
+}
+
+.Form_Btn{
+    margin-top: 30px;
+    height: 50px;
+    width: 200px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(104, 5, 233, 0.50);
+
+    cursor: pointer;
+}
+
+.Form_Btn:active{
+    transform: translateY(4px);
+}

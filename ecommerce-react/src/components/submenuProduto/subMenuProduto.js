@@ -42,6 +42,9 @@ const SubMenuProduto = () => {
             <Link className={currCount === 1 && 'active'} href="#achar" to="/EncontrarProduto">
                 <span className={currCount === 1 && 'text-active'}><i class="fas fa-arrow-right"></i>Achar Produto</span>
             </Link>
+            <Link className={currCount === 2 && 'active'} href="#cadastrar" to="/CadastrarProduto">
+                <span className={currCount === 2 && 'text-active'}><i class="fas fa-arrow-right"></i>Cadastrar Produto</span>
+            </Link>
             <Link className={currCount === 2 && 'active'} href="#deletar" to="/DeletarProduto">
                 <span className={currCount === 2 && 'text-active'}><i class="fas fa-arrow-right"></i>Deletar Produto</span>
             </Link>
