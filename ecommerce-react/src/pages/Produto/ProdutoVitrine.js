@@ -15,7 +15,7 @@ const DataTableTemplatingDemo = () => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     //const formatCurrency = (value) => {
-    //    return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    //    return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     //}
 
     const imageBodyTemplate = (rowData) => {
@@ -35,8 +35,9 @@ const DataTableTemplatingDemo = () => {
     }
 
     //const priceBodyTemplate = (rowData) => {
-    //    return formatCurrency(rowData.price);
+    //    return formatCurrency(rowData.valor);
     //}
+
 
     const ratingBodyTemplate = (rowData) => {
         return <Rating value={rowData.rating} readOnly cancel={false} />;

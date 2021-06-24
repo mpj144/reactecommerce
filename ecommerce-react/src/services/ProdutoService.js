@@ -5,8 +5,8 @@ export default class ProdutoService{
         return api.get('/produto').then(res => res.data);
     }
 
-    getProdutoId(){
-        return api.get('/produto/'+1).then(res => res.data);
+    getProdutoById(id){
+        return api.get('/produto/'+id).then(res => res.data);
     }
 
     deleteProdutoId(id){

@@ -9,7 +9,7 @@ import '../Input.scss'
 
 import axios from 'axios'
 
-const InputCadastrarProduto = () => {
+const InputAtualizarProduto = () => {
     const produtoService = new ProdutoService();
     const history = useHistory();
 
@@ -28,12 +28,13 @@ const InputCadastrarProduto = () => {
             idFuncionario: parseInt(values.idFuncionario),
             nomeFuncionario: values.nomeFuncionario,
             dataFabricacao: values.dataFabricacao + 'T00:00:00Z'
+
            // fotoLink:values.foto   
         }
 
         console.log(data)
 
-        produtoService.createProduto(data).then((resp) => alert('Produto cadastrado com sucesso'), history.push('/ListarProduto')).catch(error => console.log('Deu erro', error))
+        produtoService.updateProduto(data, values.id).then((resp) => alert('Produto atualizado com sucesso'), history.push('/ListarProduto')).catch(error => console.log('Deu erro', error))
     }
     const validations = yup.object().shape({
         nome: yup.string()
@@ -52,11 +53,16 @@ const InputCadastrarProduto = () => {
         <>
             
 
-            <Formik initialValues={{nome: '', descricao: '', valor: ''}} onSubmit={handleSubmit} validationSchema={validations}  >
+            <Formik initialValues={{id: '', nome: '', descricao: '', qtdEstoque:'', valor: ''}} onSubmit={handleSubmit} validationSchema={validations}  >
                 <Form className="Form">
    
                     <div className="produtoCampo">
-                        <p>Informações do Produto</p>
+                        <p>Atualizar informações do Produto</p>
+
+                        <div className="Form_Group">
+                            <Field name="id" className="Form_Field" placeholder="Id" />
+                            <ErrorMessage component="span" name="id" className="Form_Error" />
+                        </div>
 
                         <div className="Form_Group">
                             <Field name="nome" className="Form_Field" placeholder="Nome" />
@@ -102,8 +108,7 @@ const InputCadastrarProduto = () => {
                                 <Field name="dataFabricacao" input type="date" className="Form_Field" placeholder="Data Fabricacao" />
                                 <ErrorMessage component="span" name="dataFabricacao" className="Form_Error" />
                         </div>
-
-                        <button className="Form_Btn" type="submit">Cadastrar</button>
+                        <button className="Form_Btn" type="submit">Atualizar</button>
                     </div>          
                 </Form>
             </Formik>
@@ -112,4 +117,4 @@ const InputCadastrarProduto = () => {
     )
 }
 
-export default InputCadastrarProduto
+export default InputAtualizarProduto
