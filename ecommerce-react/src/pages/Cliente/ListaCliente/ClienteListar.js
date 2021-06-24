@@ -6,10 +6,22 @@ import SubMenuCliente from '../../../components/submenuCliente/subMenuCliente'
 
 const ClienteListar = () => (
     <>
+        
+            
+            
+        
         <Header />
         <Container>
-            <SubMenuCliente></SubMenuCliente>
-            <TableClientes />
+            <div className="div_sidebar">
+                <SubMenuCliente></SubMenuCliente>
+            </div>
+
+            <div className="div_card">
+                
+                    <h2>Lista de Clientes</h2>
+                    <TableClientes />
+                
+            </div>
         </Container>
         <Footer />
     </>

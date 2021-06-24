@@ -15,10 +15,10 @@ const EncontrarCliente = () => (
             </div>
 
             <div className="div_card">
-                <div className="sub_div">
-                    <h2>Procurar Funcionario</h2>
+                
+                    <h2>Procurar Cliente</h2>
                     <InputEncontarCliente />
-                </div>
+                
             </div>
 
         </Container>

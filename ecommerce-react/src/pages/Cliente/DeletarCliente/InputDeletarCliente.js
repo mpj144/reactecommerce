@@ -13,12 +13,12 @@ import './Modal.scss'
 
 const InputDeletarCliente = () => {
 
-    var apagou = false;
+    const [apagou, setApagou] = useState(false);
     const clienteService = new ClienteService();
 
 
     const handleSubmit = values => {
-        clienteService.deleteClienteId(values.valor).then(apagou=true)
+        clienteService.deleteClienteId(values.valor).then(()=>setApagou(true))
     }
     const validations = yup.object().shape({
         id: yup.number().min(1).required()
@@ -48,7 +48,7 @@ const InputDeletarCliente = () => {
                         <p>Cliente Deltado</p>
                         
 
-                        <button onClick={() => apagou=false} >Fechar</button>
+                        <button onClick={() => setApagou(false)} >Fechar</button>
 
                     </Modal>
 

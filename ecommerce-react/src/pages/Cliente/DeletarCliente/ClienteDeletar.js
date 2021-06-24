@@ -15,10 +15,10 @@ const DeletarCliente = () => (
             </div>
 
             <div className="div_card">
-                <div className="sub_div">
+
                     <h2>Deletar Cliente</h2>
                     <InputDeletarCliente />
-                </div>
+            
             </div>
 
         </Container>
