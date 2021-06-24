@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Produto.module.css';
+import './Produto.css';
 
 import Header from '../../components/header/header';
 import Container from '../../components/container/container';
 import Footer from '../../components/footer/footer';
+import DataTableTemplatingDemo from './ProdutoVitrine';
 
 import SubMenuProduto from '../../components/submenuProduto/subMenuProduto'
 
@@ -13,12 +14,12 @@ const Produto = () => (
     <Header />
     <Container>
       <SubMenuProduto></SubMenuProduto>
-      <div className={styles.Produto}>
+      <div className="DivTabela">
 
-        <h1>Produto Component</h1>
+      <DataTableTemplatingDemo></DataTableTemplatingDemo>
 
       </div>
-
+    
     </Container>
     <Footer />
     
