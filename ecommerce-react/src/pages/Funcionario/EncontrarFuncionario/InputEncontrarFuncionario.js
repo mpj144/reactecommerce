@@ -21,7 +21,9 @@ const InputEncontarFuncionario = () => {
         funcionarioService.getFuncionarioById(values.valor).then(resp => setFuncionarios(resp))
     }
     const validations = yup.object().shape({
-        id: yup.number().min(1).required()
+        valor: yup.number('Valor precisa ser um numero')
+            .min(1, 'Campo obrigatório.')
+            .required('Campo obrigatório.')
     })
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
@@ -29,11 +31,11 @@ const InputEncontarFuncionario = () => {
         <>
             <p>Digite o id do Funcionario desejado, abaixo!</p>
 
-            <Formik onSubmit={handleSubmit} validationSchema={validations} initialValues={[]} >
+            <Formik onSubmit={handleSubmit} validationSchema={validations} initialValues={{ valor: '' }} >
                 <Form className="Form">
 
                     <div className="Form_Group">
-                        <Field name="valor" className="Form_Field" />
+                        <Field name="valor" className="Form_Field" /> <br />
                         <ErrorMessage component="span" name="valor" className="Form_Error" />
                     </div>
 

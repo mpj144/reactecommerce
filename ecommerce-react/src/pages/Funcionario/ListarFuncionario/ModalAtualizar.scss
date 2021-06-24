@@ -1,0 +1,86 @@
+.update_modal{
+    padding-top: 1%;
+    margin: 7% 40%;
+    border-radius: 10px;
+    position: 'absolute';
+    width:350px;
+    height: 480px;
+    background: #ffffff;
+    border: 2px solid #000;
+    box-shadow: 5px 2px 2px black;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    
+    .div_infoAtual{
+        margin-left: 30%;
+        text-align: left;
+        p{
+            
+        }
+    }
+
+    .div_form{
+
+        margin-top: 4vh;
+
+        .div_FieldUpdate{
+            height: 10vh;
+            align-self: center;
+            text-align: center;
+        }
+
+        .Field_Update{
+            margin-top: 10px;
+            width: 60%;
+            height: 50px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.2s linear;
+            font-size: 16px;
+        }
+
+        .Field_Update:focus{
+            box-shadow: 0 4px 4px rgb(24, 23, 23);
+            outline: none;
+        }
+
+        .Form_ErrorUpdate{
+            color: #bd6666;
+            
+        }
+
+    }
+
+    button {
+        border-radius: 8px;
+        margin: 0 5px;
+        margin-top: 60px;
+        width: 40%;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    .btn_salvar{
+        color: #000;
+        background-color: rgb(0, 153, 255);
+
+    }
+    .btn_fechar{
+        color: #000;
+        background-color: rgb(202, 65, 65);
+        
+    }
+
+}   
+
+@media (max-width: 1000px) {
+
+    .update_modal{
+        margin: 15% 35%;
+    }
+
+
+}
+  

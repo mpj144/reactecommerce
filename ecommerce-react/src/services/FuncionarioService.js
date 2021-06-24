@@ -13,4 +13,12 @@ export default class FuncionarioService {
         return api.post('/funcionario', newFuncionario).then(res => res.data);
     }
 
+    updateFuncionarioById(id, funcionario) {
+        return api.put('/funcionario/' + id, funcionario).then(res => res.data);
+    }
+
+    deleteFuncionarioById(id) {
+        return api.delete('/funcionario/' + id).then(res => res.data);
+    }
+
 }

@@ -1,14 +1,66 @@
 
 .card{
     align-content: center;
+    border-radius: 8px;
+    th {
+        background-color: rgb(131, 131, 131) !important;
+        margin-bottom: 15px;
+      }
 }
 
+.ui-button-update{
+    background-color: rgb(86, 148, 177) !important;
+    margin-right: 10px !important;
+    
+}
+.btn_icon{
+    width:  25px;
+}
+.btn_delete{
+    background-color: rgb(187, 113, 113) !important;
+    
+}
 
 .card_column{
 
-    padding: 5px 5px ;
+    
     border: 1px solid #000000;
-    background-color: rgb(165, 100, 250);
-
+    background-color: rgb(255, 255, 255);
+    padding: 0.5vh 8vh;
     font-size: 20px;
+
+}
+
+@media (max-width: 1400px) {
+
+    .card_column{
+        padding: 0.2vh 5vh;
+        font-size: 15px;
+    
+    }
+
+}
+
+@media (max-width: 993px) {
+
+    .card_column{
+        padding: 0.1vh 1vh;
+        font-size: 15px;
+        
+    }
+
+   .btn_icon{
+    width:  10px;
+    height: 10px;
+   }
+
+}
+
+@media (max-width: 675px) {
+
+    .card_column{
+        
+        margin: 0 10%;
+    }
+
 }
