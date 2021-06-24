@@ -32,10 +32,11 @@ const InputEncontarCategoria = () => {
 
             <Formik onSubmit={handleSubmit} validationSchema={validations} initialValues={[]} >
                 <Form className="Form">
-
-                    <div className="Form_Group">
-                        <Field name="valor" className="Form_Field" />
-                        <ErrorMessage component="span" name="valor" className="Form_Error" />
+                    <div className="caixa">
+                        <div className="Form_Group">
+                            <Field name="valor" className="Form_Field" />
+                            <ErrorMessage component="span" name="valor" className="Form_Error" />
+                        </div>
                     </div>
 
                     <button className="Form_Btn" type="submit" onClick={() => setModalIsOpen(true)}>Procurar</button>
