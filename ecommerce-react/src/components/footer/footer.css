@@ -3,7 +3,7 @@
     padding: .5rem 2rem;
     text-align: right;
     position: relative;
-    width: 100%;
+    max-width: 1920px;
     bottom: 0;
     height: auto;
 }

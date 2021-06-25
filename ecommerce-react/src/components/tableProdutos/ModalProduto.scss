@@ -1,22 +1,27 @@
-.modal_cliente{
-    
-    display: grid;
-    grid-template-columns: auto auto auto;
+.modal_produto{
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    width: 30%;
+
+    margin-top: 2%;
+    margin-left: 35%;
+
     background: #ffffff;
-    position: 'absolute';
-    
-    .div_infoAtual{
-        margin-left: 30%;
+    border: 2px solid #000;
+    box-shadow: 5px 2px 2px black;
+
+    border-radius: 10px;
+
+    .div_infoAtual_produto{
         text-align: left;
-        p{
-            
-        }
+        margin-left: 30%;
     }
 
-    .div_form{
-
-        margin-top: 4vh;
-
+.div_form_produto{
+        padding-top: 30px;
+        text-align: center;
         .div_FieldUpdate{
             height: 10vh;
             align-self: center;
@@ -43,12 +48,12 @@
             
         }
 
-    }
+}
 
     button {
         border-radius: 8px;
         margin: 0 5px;
-        margin-top: 60px;
+        margin-top: 20px;
         width: 40%;
         height: 50px;
         margin-bottom: 10px;
@@ -66,35 +71,6 @@
     }
 
 }   
-
-
-.card_column_cliente{
-    border: 1px solid #000000;
-    background-color: rgb(255, 255, 255);
-    padding: 0.5vh 1vh;
-    font-size: 20px;
-}
-
-
-.modal_cliente{
-
-    padding-top: 30px;
-    padding-bottom: 30px;
-
-    width: 80%;
-
-    margin-top: 5%;
-    margin-left: 11%;
-
-    background: #ffffff;
-    border: 2px solid #000;
-    box-shadow: 5px 2px 2px black;
-
-    border-radius: 10px;
-
-
-}
-  
 .Form_Update_cliente{
     display: grid;
     grid-template-columns: auto auto;

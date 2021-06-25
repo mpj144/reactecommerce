@@ -3,10 +3,13 @@
 }
 
 .div_card{
-    
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
     justify-content: center;
     justify-self: left;
-    height: auto;
+    height: 100%;
     width: 100%;
     
     position: relative;
@@ -23,7 +26,9 @@
         border-radius: 5px;
 
         width: 80%;
-        height: 80%;
+        
+        height: 1080px;
+        max-height: auto;
 
         display: flex;
         flex-direction: column;

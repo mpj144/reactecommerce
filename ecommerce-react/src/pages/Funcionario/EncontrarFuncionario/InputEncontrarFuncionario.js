@@ -32,14 +32,14 @@ const InputEncontarFuncionario = () => {
             <p>Digite o id do Funcionario desejado, abaixo!</p>
 
             <Formik onSubmit={handleSubmit} validationSchema={validations} initialValues={{ valor: '' }} >
-                <Form className="Form">
+                <Form className="Form-Funcionario">
 
-                    <div className="Form_Group">
-                        <Field name="valor" className="Form_Field" /> <br />
+                    <div className="Form_Group-Funcionario">
+                        <Field name="valor" className="Form_Field-Funcionario" /> <br />
                         <ErrorMessage component="span" name="valor" className="Form_Error" />
                     </div>
 
-                    <button className="Form_Btn" type="submit" onClick={() => setModalIsOpen(true)}>Procurar</button>
+                    <button className="Form_Btn-Funcionario" type="submit" onClick={() => setModalIsOpen(true)}>Procurar</button>
 
 
                     <Modal isOpen={Boolean(funcionarios)} className="Modal_Form">

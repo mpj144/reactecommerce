@@ -38,3 +38,15 @@ table{
     border-top: 0.5px solid rgb(110, 102, 102);
 
 }
+
+.btn_comprar{
+    background: rgb(0, 173, 253);
+    border-radius: 6px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
+ .btn_comprar:active{
+    transform: translateY(4px);
+
+ }

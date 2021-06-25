@@ -4,6 +4,7 @@ import { Column } from 'primereact/column';
 import ProdutoService from '../../services/ProdutoService';
 import { Button } from 'primereact/button';
 import { Rating } from 'primereact/rating';
+import { BiCart } from 'react-icons/bi'
 import './ProdutoVitrine.css';
 
 const DataTableTemplatingDemo = () => {
@@ -19,7 +20,7 @@ const DataTableTemplatingDemo = () => {
     //}
 
     const imageBodyTemplate = (rowData) => {
-        return <img src={rowData.fotoLink} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={rowData.image} className="product-image" />;
+        return <img src={rowData.fotoLink} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={rowData.image} className="product-image" />;
     }
 
     const actionTemplate = (rowData, column) => {
@@ -27,8 +28,8 @@ const DataTableTemplatingDemo = () => {
             <>
                 <Button
                     type="button"
-                    className="Comprar"
-                > Comprar </Button>
+                    className="btn_comprar"
+                > <BiCart /> Add Carrinho </Button>
 
             </>
         );
@@ -52,7 +53,7 @@ const DataTableTemplatingDemo = () => {
             <h2>Produtos</h2>
         </div>
     );
-    
+
     //const footer = `In total there are ${products ? products.length : 0} products.`;
 
     return (

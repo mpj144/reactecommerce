@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Menu from '../Menu/Menu'
+import Menu from '../menu/Menu'
 
 import './header.css'
 
@@ -13,7 +13,7 @@ const Header = () => (
 
         <img src={logo} alt="logo" />
 
-        <Menu/>
+        <Menu />
 
     </header>
 )

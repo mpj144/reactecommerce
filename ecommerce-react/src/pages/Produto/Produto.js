@@ -13,16 +13,20 @@ const Produto = () => (
   <>
     <Header />
     <Container>
-      <SubMenuProduto></SubMenuProduto>
+
+      <div className="div_sidebar">
+        <SubMenuProduto></SubMenuProduto>
+      </div>
+
       <div className="DivTabela">
 
-      <DataTableTemplatingDemo></DataTableTemplatingDemo>
+        <DataTableTemplatingDemo></DataTableTemplatingDemo>
 
       </div>
-    
+
     </Container>
     <Footer />
-    
+
   </>
 
 );

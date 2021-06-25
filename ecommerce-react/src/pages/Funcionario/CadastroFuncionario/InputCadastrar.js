@@ -46,19 +46,19 @@ const InputCadastrarFuncionario = () => {
             <p>Preencha os campos abaixo para cadastrar um novo funcionario</p>
 
             <Formik initialValues={{ nomeFunc: '', cpf: '' }} onSubmit={handleSubmit} validationSchema={validations}  >
-                <Form className="Form">
+                <Form className="Form-Funcionario">
 
-                    <div className="Form_Group">
-                        <Field name="nomeFunc" className="Form_Field" placeholder="Nome" /> <br />
+                    <div className="Form_Group-Funcionario">
+                        <Field name="nomeFunc" className="Form_Field-Funcionario" placeholder="Nome" /> <br />
                         <ErrorMessage component="span" name="nomeFunc" className="Form_Error" />
                     </div>
 
-                    <div className="Form_Group">
-                        <Field name="cpf" className="Form_Field" placeholder="CPF" /> <br />
+                    <div className="Form_Group-Funcionario">
+                        <Field name="cpf" className="Form_Field-Funcionario" placeholder="CPF" /> <br />
                         <ErrorMessage component="span" name="cpf" className="Form_Error" />
                     </div>
 
-                    <button className="Form_Btn" type="submit">Cadastrar</button>
+                    <button className="Form_Btn-Funcionario" type="submit">Cadastrar</button>
 
                 </Form>
             </Formik>
