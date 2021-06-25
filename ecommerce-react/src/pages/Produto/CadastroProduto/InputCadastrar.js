@@ -33,12 +33,31 @@ const InputCadastrarProduto = () => {
             idCategoria: parseInt(values.categoria),
             idFuncionario: parseInt(values.funcionario),
             dataFabricacao: values.dataFabricacao + 'T00:00:00Z'
-            // fotoLink:values.foto   
+
         }
 
-        console.log(data)
+        const element = document.getElementById('image')
+        const file = element.files[0]
+        var formDataProduto = new FormData()
 
-        produtoService.createProduto(data).then((resp) => alert('Produto cadastrado com sucesso'), history.push('/ListarProduto')).catch(error => console.log('Deu erro', error))
+        const jsonData = JSON.stringify(data);
+        const produto = new Blob([jsonData], {
+            type: 'application/json'
+        });
+
+        formDataProduto.append('file', element.files[0], 'file')
+        formDataProduto.append("produto", produto)
+
+        console.log(jsonData)
+        console.log(formDataProduto.get('document'))
+
+        axios.post("https://ecommerce-api-g5.herokuapp.com/produto/comfoto", formDataProduto, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data',
+            }
+        }).then(response => history.push('/Produto'));
+
     }
     const validations = yup.object().shape({
         nome: yup.string()
@@ -81,7 +100,7 @@ const InputCadastrarProduto = () => {
 
 
             <Formik initialValues={{ nome: '', descricao: '', valor: '' }} onSubmit={handleSubmit} validationSchema={validations}  >
-                <Form className="Form">
+                <Form className="Form" id="formulario">
 
                     <div className="produtoCampo">
                         <p>Informações do Produto</p>
@@ -106,16 +125,6 @@ const InputCadastrarProduto = () => {
                             <ErrorMessage component="span" name="valor" className="Form_Error" />
                         </div>
 
-                        {/* <div className="Form_Group">
-                            <Field name="idCategoria" className="Form_Field" placeholder="Id Categoria" />
-                            <ErrorMessage component="span" name="idCategoria" className="Form_Error" />
-                        </div>
-
-                        <div className="Form_Group">
-                            <Field name="nomeCategoria" className="Form_Field" placeholder="Nome Categoria" />
-                            <ErrorMessage component="span" name="nomeCategoria" className="Form_Error" />
-                        </div> */}
-
                         <div className="Form_Group">
                             <Field name="categoria" as="select" className="Form_Field" placeholder="Categoria" >
                                 <option value="">Selecione uma categoria</option>
@@ -126,17 +135,8 @@ const InputCadastrarProduto = () => {
                             <ErrorMessage component="span" name="categoria" className="Form_Error" />
                         </div>
 
-                        {/* <div className="Form_Group">
-                            <Field name="idFuncionario" className="Form_Field" placeholder="Id Funcionario" />
-                            <ErrorMessage component="span" name="idFuncionario" className="Form_Error" />
-                        </div>
-
                         <div className="Form_Group">
-                            <Field name="nomeFuncionario" className="Form_Field" placeholder="Nome Funcionario" />
-                            <ErrorMessage component="span" name="nomeFuncionario" className="Form_Error" />
-                        </div> */}
 
-                        <div className="Form_Group">
                             <Field name="funcionario" as="select" className="Form_Field" placeholder="Funcionario" >
                                 <option value="">Selecione um funcionario</option>
 
@@ -151,6 +151,12 @@ const InputCadastrarProduto = () => {
                             <Field name="dataFabricacao" input type="date" className="Form_Field" placeholder="Data Fabricacao" />
                             <ErrorMessage component="span" name="dataFabricacao" className="Form_Error" />
                         </div>
+
+                        <div className="Form_Group">
+                            <Field name="foto" type="file" id="image" className="Form_Field" placeholder="Foto" />
+                            <ErrorMessage component="span" name="foto" className="Form_Error" />
+                        </div>
+
 
                         <button className="Form_Btn" type="submit">Cadastrar</button>
                     </div>
