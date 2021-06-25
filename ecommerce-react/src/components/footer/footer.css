@@ -6,10 +6,26 @@
     max-width: 1920px;
     bottom: 0;
     height: auto;
+    align-items: center;
 }
 
 #criadores{
     margin-left: 10%;
+}
+
+#redes{
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 100%;
+
+}
+
+footer li{
+    float: left;
+    width: 200px;
+    height: 40px;
+    text-align: center;
 }
 
 footer a, ul {
@@ -17,12 +33,13 @@ footer a, ul {
     list-style:none;
     display: inline-block;
     font-size: 1.0rem;
+    display: inline-block;
 
-    color: #333;
+    color: rgb(255, 254, 254);
     text-decoration: none;
     
 }
 
 footer li :hover {
-    color: #6D6D6D;
+    color: #54c454;
 }
