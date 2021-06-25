@@ -86,7 +86,7 @@ const TableProdutos = (props) => {
 
         console.log(data)
 
-        //produtoService.updateProduto(data, produtoEdit.id).then((resp) => alert('Produto atualizado com sucesso'), document.location.reload(true)).catch(error => console.log('Deu erro', error))
+        produtoService.updateProduto(data, produtoEdit.id).then((resp) => alert('Produto atualizado com sucesso'), document.location.reload(true)).catch(error => console.log('Deu erro', error))
     }
 
     const validations = yup.object().shape({

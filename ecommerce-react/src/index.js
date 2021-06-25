@@ -33,12 +33,14 @@ import ClienteDeletar from './pages/Cliente/DeletarCliente/ClienteDeletar'
 import ClienteAtualizar from './pages/Cliente/AtualizarCliente/ClienteAtualizar'
 import ClienteCadastrar from './pages/Cliente/CadastrarCliente/ClienteCadastrar'
 
+import CartIndex from './pages/Cart/CartIndex'
+
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/" exact={true} component={App} />
-      
+
       <Route path="/Produto" component={Produto} />
       <Route path="/ListarProduto" component={ProdutoLista} />
       <Route path="/EncontrarProduto" component={ProdutoEncontrar} />
@@ -66,6 +68,8 @@ ReactDOM.render(
       <Route path="/DeletarCliente" component={ClienteDeletar} />
       <Route path="/AtualizarCliente" component={ClienteAtualizar} />
       <Route path="/CadastrarCliente" component={ClienteCadastrar} />
+
+      <Route path="/Carrinho" component={CartIndex} />
 
     </Switch>
   </BrowserRouter>,

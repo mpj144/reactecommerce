@@ -1,0 +1,51 @@
+.main_body{
+    width: 90%;
+    background: rgb(138, 138, 138);
+    
+    display: flex;
+   
+    border-radius: 8px;
+} 
+
+aside {       
+    margin-left: 1%;
+    border-bottom: 1px solid black;
+}
+img {
+    width: 120px;
+    height: 120px;    
+}
+
+.infos_produto{
+    
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: left;
+    justify-self: left;
+    text-align: left;
+
+    padding: 5px 0;
+
+    border-bottom: 1px solid black;
+
+}
+
+.infos_produtop1{
+    width: 50%;
+}
+
+.infos_produtop2{
+    width: 50%;
+    text-align: right;
+}
+
+.part_value{
+
+    font-size: 25px;
+    margin: 5%;
+    margin-top: 50px;
+    
+}
