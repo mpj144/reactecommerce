@@ -10,19 +10,18 @@ const App = () => {
   return (
 
 
-    <>
-      <Header />
-      <Container>
+      <>
+        <Header />
+        <Container >
 
-        <div >
-
-          Principal
-
+          <div className="div_card">
+            <div className="sub_div">
+              <h1>Bem-vindo ao e-commerce Group Five!</h1>
+            </div>  
           </div>
-
-      </Container>
-      <Footer />
-    </>
+        </Container>
+        <Footer />
+      </>
 
   );
 
