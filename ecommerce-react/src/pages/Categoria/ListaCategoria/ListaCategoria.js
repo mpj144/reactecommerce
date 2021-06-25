@@ -8,8 +8,19 @@ const CategoriaListar = () => (
     <>
         <Header />
         <Container>
-            <SubMenuCategoria></SubMenuCategoria>
-            <TabelaCategoria />
+
+            <div className="div_sidebar">
+                <SubMenuCategoria></SubMenuCategoria>
+            </div>
+
+            <div className="div_card">
+                <div className="sub_div">
+                    <h2>Lista de Categorias</h2>
+                    <TabelaCategoria />
+                </div>
+            </div>
+
+
         </Container>
         <Footer />
     </>

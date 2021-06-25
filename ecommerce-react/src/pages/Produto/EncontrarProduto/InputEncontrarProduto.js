@@ -32,11 +32,11 @@ const InputEncontarProduto = () => {
             <p>Digite o id do Produto desejado, abaixo!</p>
 
             <Formik onSubmit={handleSubmit} validationSchema={validations} initialValues={{ valor: '' }} >
-                <Form className="Form">
+                <Form className="Form-Funcionario">
 
-                    <div className="Form_Group">
-                        <Field name="valor" className="Form_Field" /> <br />
-                        <ErrorMessage component="span" name="valor" className="Form_Error" />
+                    <div className="Form_Group-Funcionario">
+                        <Field name="valor" className="Form_Field-Funcionario" /> <br />
+                        <ErrorMessage component="span" name="valor" className="Form_Error-Funcionario" />
                     </div>
 
                     <button className="Form_Btn" type="submit" onClick={() => setModalIsOpen(true)}>Procurar</button>

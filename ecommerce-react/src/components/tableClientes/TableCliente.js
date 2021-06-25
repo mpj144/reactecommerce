@@ -16,52 +16,53 @@ import { Button } from '@material-ui/core';
 
 const TableClientes = (props) => {
     const history = useHistory();
-    const [clientes,setClientes] = useState([]);
+    const [clientes, setClientes] = useState([]);
     const clienteService = new ClienteService();
-    const [modalIsOpen,setModalIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    const[clienteEdit, setClienteEdit] = useState(
-        {   id:'',
-            nome: '',  
-            usuario: '', 
-            email: '', 
+    const [clienteEdit, setClienteEdit] = useState(
+        {
+            id: '',
+            nome: '',
+            usuario: '',
+            email: '',
             cpf: '',
-            niver:'',
-            endereco:{
-            rua:'',
-            numero:'',
-            complemento:'',
-            bairro:'',
-            cidade:'',
-            estado:'',
-            cep:'',
+            dataNascimento: '',
+            endereco: {
+                rua: '',
+                numero: '',
+                complemento: '',
+                bairro: '',
+                cidade: '',
+                estado: '',
+                cep: '',
             },
-            
+
         }
     );
-    useEffect(()=>{
+    useEffect(() => {
         clienteService.getCliente().then(data => setClientes(data));
-    },[]);
+    }, []);
 
-    function deleteItem(id){
-        clienteService.deleteClienteId(id).then(resp => {document.location.reload(true)}).catch(erro => console.log(erro))
+    function deleteItem(id) {
+        clienteService.deleteClienteId(id).then(resp => { document.location.reload(true) }).catch(erro => console.log(erro))
     }
 
-    function AtualizarItem(rowData){
-        setClienteEdit({...rowData})
+    function AtualizarItem(rowData) {
+        setClienteEdit({ ...rowData })
         setModalIsOpen(true)
     }
 
-    const actionTemplate = (rowData,column) =>{
+    const actionTemplate = (rowData, column) => {
         return (
-            
+
             <>
                 <Button
                     type="button"
                     className="ui-button-update"
 
                     onClick={() => AtualizarItem(rowData)}
-                ><BiPencil className="btn_icon"/></Button>
+                ><BiPencil className="btn_icon" /></Button>
 
                 <Button
                     type="button"
@@ -75,183 +76,189 @@ const TableClientes = (props) => {
 
     const handleSubmit = values => {
         const data = {
-            endereco:{
-                rua: values.rua ? values.rua : clienteEdit.rua,
-                numero: values.numero ? values.numero :clienteEdit.numero,
-                complemento: values.complemento ? values.complemento :clienteEdit.complemento,
-                bairro: values.bairro ? values.bairro :clienteEdit.bairro,
-                cidade: values.cidade  ? values.cidade :clienteEdit.cidade,
-                estado: values.estado ? values.estado :clienteEdit.estado,
-                cep: values.cep ? values.cep :clienteEdit.cep
+            endereco: {
+                rua: values.rua ? values.rua : clienteEdit.endereco.rua,
+                numero: values.numero ? values.numero : clienteEdit.endereco.numero,
+                complemento: values.complemento ? values.complemento : clienteEdit.endereco.complemento,
+                bairro: values.bairro ? values.bairro : clienteEdit.endereco.bairro,
+                cidade: values.cidade ? values.cidade : clienteEdit.endereco.cidade,
+                estado: values.estado ? values.estado : clienteEdit.endereco.estado,
+                cep: values.cep ? values.cep : clienteEdit.endereco.cep
             },
-            nome: values.nome ?values.nome :clienteEdit.nome,
-            usuario: values.usuario ?values.usuario :clienteEdit.usuario,
-            email: values.email ?values.email :clienteEdit.email,
-            cpf: values.cpf ?values.cpf :clienteEdit.cpf,
-            dataNascimento:values.niver ? values.niver:clienteEdit.niver
+            nome: values.nome ? values.nome : clienteEdit.nome,
+            usuario: values.usuario ? values.usuario : clienteEdit.usuario,
+            email: values.email ? values.email : clienteEdit.email,
+            cpf: values.cpf ? values.cpf : clienteEdit.cpf,
+            dataNascimento: values.niver ? values.niver + 'T00:00:00Z' : clienteEdit.dataNascimento + 'T00:00:00Z'
+
         }
 
-        clienteService.updateCliente(clienteEdit.id,data).then((res)=>{ document.location.reload(true) }).catch(error => console.log('Deu errado', error))
+        console.log(clienteEdit.id)
+
+        clienteService.updateCliente(data, clienteEdit.id).then((res) => { document.location.reload(true) }).catch(error => console.log('Deu errado', error))
     }
 
     const validations = yup.object().shape({
         nome: yup.string()
-                        .min(5,'Nome deve conter 5 ou mais caracteres')
-                        .max(60,'Nome deve conter 60 ou menos caracteres'),
-        usuario: yup.string().required('Escolha um nome de usuário'),
-        email:   yup.string()
-                    .min(4,'E-mail deve conter 4 ou mais caracteres')
-                    .max(30,'E-mail deve conter 30 ou menos caracteres'),
+            .min(5, 'Nome deve conter 5 ou mais caracteres')
+            .max(60, 'Nome deve conter 60 ou menos caracteres'),
+        usuario: yup.string().min(6, 'Usuario deve conter 6 ou mais caracteres'),
+        email: yup.string()
+            .min(4, 'E-mail deve conter 4 ou mais caracteres')
+            .max(30, 'E-mail deve conter 30 ou menos caracteres'),
         cpf: yup
             .string()
             .matches(/^['0'-'1'-'2'-'3'-'4'-'5'-'6'-'7'-'8'-'9']+[''0'-'1'-'2'-'3'-'4'-'5'-'6'-'7'-'8'-'9']$/, 'Só pode conter números!')
             .min(11, 'Número de CPF muito pequeno!')
-            .max(11, 'Número de CPF muito grande!'), 
-            rua: yup
-                .string()
-                .min(4,'pequeno')
-                .max(60,'grande'),
-            numero: yup
-                    .string()
-                    .min(1,'pequeno')
-                    .max(20,'grande'),
-            complemento: yup
-                        .string()
-                        .max(30,'grande'),
-            bairro: yup
-                    .string()
-                    .max(40,'grande'),
-            cidade: yup
-                    .string()
-                    .min(3,'pequeno')
-                    .max(40,'grande'),
-            estado: yup
-                    .string()
-                    .min(0,'pequeno')
-                    .max(2,'grande'),
-            cep: yup
-                .string(),      
+            .max(11, 'Número de CPF muito grande!'),
+        rua: yup
+            .string()
+            .min(4, 'pequeno')
+            .max(60, 'grande'),
+        numero: yup
+            .string()
+            .min(1, 'pequeno')
+            .max(20, 'grande'),
+        complemento: yup
+            .string()
+            .max(30, 'grande'),
+        bairro: yup
+            .string()
+            .max(40, 'grande'),
+        cidade: yup
+            .string()
+            .min(3, 'pequeno')
+            .max(40, 'grande'),
+        estado: yup
+            .string()
+            .min(0, 'pequeno')
+            .max(2, 'grande'),
+        cep: yup
+            .string(),
         niver: yup
-                .string()
+            .string()
     });
 
 
-    return(
-        <div>
-            
-                <DataTable className="card" value={clientes} paginator={true} rows={8}> 
-                    <Column field="id" header="Id"></Column>
-                    <Column field="nome" header="Nome"></Column>
-                    <Column field="usuario" header="User"></Column>
-                    <Column field="email" header="Email"></Column>
-                    <Column field="cpf" header="CPF"></Column>
-                    <Column field="dataNascimento" header="Aniversário"></Column>
-                    <Column field="endereco.cep" header="CEP"></Column>
-                    <Column field="endereco.estado" header="Estado"></Column>
-                    <Column field="endereco.cidade" header="Cidade"></Column>
-                    <Column field="endereco.rua" header="Rua"></Column>
-                    <Column field="endereco.numero" header="Número"></Column>
-                    <Column field="endereco.complemento" header="Complemento"></Column>
-                    <Column body={actionTemplate} header="Acoes" className="card_column"></Column>
-                </DataTable>
+    return (
 
-                <Modal isOpen={modalIsOpen} className="modal_cliente">
-                    <div className="div_infoAtual">
-                        <strong>Informacoes Atuais</strong>
+        <>
 
-                        <p><strong>ID: </strong>{clienteEdit.id}</p>
-                        <p><strong>Nome: </strong>{clienteEdit.nome}</p>
-                        <p><strong>Usuario: </strong>{clienteEdit.usuario}</p>
-                        <p><strong>E-mail: </strong>{clienteEdit.email}</p>
-                        <p><strong>CPF: </strong>{clienteEdit.cpf}</p>
-                        <p><strong>Rua: </strong>{clienteEdit.endereco.rua}</p> 
-                        <p><strong>Numero:</strong>{clienteEdit.endereco.numero}</p> 
-                        <p><strong>Complemento:</strong>{clienteEdit.endereco.complemento}</p> 
-                        <p><strong>Bairro:</strong>{clienteEdit.endereco.bairro}</p>
-                        <p><strong>Cidade:</strong>{clienteEdit.endereco.cidade}</p> 
-                        <p><strong>Estado:</strong>{clienteEdit.endereco.estado}</p>
-                        <p><strong>Cep:</strong>{clienteEdit.endereco.cep}</p>
-                    </div>                       
+            <DataTable className="card" value={clientes} paginator={true} rows={8}>
+                <Column field="id" header="Id" className="card_column_cliente" ></Column>
+                <Column field="nome" header="Nome" className="card_column_cliente" ></Column>
+                <Column field="usuario" header="User" className="card_column_cliente"></Column>
+                <Column field="email" header="Email" className="card_column_cliente"></Column>
+                <Column field="cpf" header="CPF" className="card_column_cliente" ></Column>
+                {/* <Column field="dataNascimento" header="Aniversário"></Column>
+                <Column field="endereco.cep" header="CEP"></Column>
+                <Column field="endereco.estado" header="Estado"></Column>
+                <Column field="endereco.cidade" header="Cidade"></Column>
+                <Column field="endereco.rua" header="Rua"></Column>
+                <Column field="endereco.numero" header="Número"></Column>
+                <Column field="endereco.complemento" header="Complemento"></Column> */}
+                <Column body={actionTemplate} header="Acoes" className="card_column_cliente" ></Column>
+            </DataTable>
 
-                       
-                    
-                        
-                        <Formik initialValues={{ nome: '', usuario: '', email: '', cpf: '' ,rua:'',numero:'',complemento:'',bairro:'',cidade:'',estado:'',cep:'',niver:''}} onSubmit={handleSubmit} validationSchema={validations}  >
-                            <Form className="Form_Update_cliente">
-                            
+            <Modal isOpen={modalIsOpen} className="modal_cliente">
+                <div className="div_infoAtual">
+                    <strong>Informacoes Atuais</strong>
+
+                    <p><strong>ID: </strong>{clienteEdit.id}</p>
+                    <p><strong>Nome: </strong>{clienteEdit.nome}</p>
+                    <p><strong>Usuario: </strong>{clienteEdit.usuario}</p>
+                    <p><strong>E-mail: </strong>{clienteEdit.email}</p>
+                    <p><strong>CPF: </strong>{clienteEdit.cpf}</p>
+                    <p><strong>Data Nascimento: </strong>{clienteEdit.dataNascimento}</p>
+                    <p><strong>Rua: </strong>{clienteEdit.endereco.rua}</p>
+                    <p><strong>Numero:</strong>{clienteEdit.endereco.numero}</p>
+                    <p><strong>Complemento:</strong>{clienteEdit.endereco.complemento}</p>
+                    <p><strong>Bairro:</strong>{clienteEdit.endereco.bairro}</p>
+                    <p><strong>Cidade:</strong>{clienteEdit.endereco.cidade}</p>
+                    <p><strong>Estado:</strong>{clienteEdit.endereco.estado}</p>
+                    <p><strong>Cep:</strong>{clienteEdit.endereco.cep}</p>
+                </div>
+
+
+
+                <div className="div_form">
+                    <Formik initialValues={{ nome: '', usuario: '', email: '', cpf: '', rua: '', numero: '', complemento: '', bairro: '', cidade: '', estado: '', cep: '', niver: '' }} onSubmit={handleSubmit} validationSchema={validations}  >
+                        <Form className="Form_Update_cliente">
+
                             <div className="enderecoCampo_modal">
-                            <strong>Insira as novas Informações do endereço</strong>
-                            
-                            <div className="Form_Group">
-                                <Field name="rua" className="Form_Field" placeholder="Rua" />
-                                <ErrorMessage component="span" name="rua" className="Form_Error" />
-                            </div>
-                            <div className="Form_Group">
-                                <Field name="numero" className="Form_Field" placeholder="Numero" />
-                                <ErrorMessage component="span" name="numero" className="Form_Error" />
-                            </div>
-                            <div className="Form_Group">
-                                <Field name="complemento" className="Form_Field" placeholder="Complemento" />
-                                <ErrorMessage component="span" name="complemento" className="Form_Error" />
-                            </div>
-                            <div className="Form_Group">
-                                <Field name="bairro" className="Form_Field" placeholder="Bairro" />
-                                <ErrorMessage component="span" name="bairro" className="Form_Error" />
-                            </div>
-                            <div className="Form_Group">
-                                <Field name="cidade" className="Form_Field" placeholder="Cidade" />
-                                <ErrorMessage component="span" name="cidade" className="Form_Error" />
-                            </div>
-                            <div className="Form_Group">
-                                <Field name="estado" className="Form_Field" placeholder="Estado" />
-                                <ErrorMessage component="span" name="estado" className="Form_Error" />
-                            </div>
-                            <div className="Form_Group">
-                                <Field name="cep" className="Form_Field" placeholder="CEP" />
-                                <ErrorMessage component="span" name="cep" className="Form_Error" />
-                            </div>
-                        </div>
+                                <strong>Insira as novas Informações do endereço</strong>
 
-
-                        <div className="clienteCampo_modal">
-                       
-                        <strong>Insira as novas Informações do cliente</strong>
-                            <div className="Form_Group">
-                                <Field name="nome" className="Form_Field" placeholder="Nome" />
-                                <ErrorMessage component="span" name="nome" className="Form_Error" />
-                            </div>
-
-                            <div className="Form_Group">
-                                <Field name="usuario" className="Form_Field" placeholder="Usuario" />
-                                <ErrorMessage component="span" name="usuario" className="Form_Error" />
-                            </div>
-
-                            <div className="Form_Group">
-                                <Field name="email" className="Form_Field" placeholder="E-mail" />
-                                <ErrorMessage component="span" name="email" className="Form_Error" />
-                            </div>
-
-                            <div className="Form_Group">
-                                <Field name="cpf" className="Form_Field" placeholder="CPF" />
-                                <ErrorMessage component="span" name="cpf" className="Form_Error" />
-                            </div>
-                            <div className="Form_Group">
-                                <Field name="niver" input type="date"className="Form_Field" placeholder="Aniversário" />
-                                <ErrorMessage component="span" name="niver" className="Form_Error" />
+                                <div className="div_FieldUpdate">
+                                    <Field name="rua" className="Field_Update" placeholder="Rua" /> <br />
+                                    <ErrorMessage component="span" name="rua" className="Form_ErrorUpdate" />
+                                </div>
+                                <div className="div_FieldUpdate">
+                                    <Field name="numero" className="Field_Update" placeholder="Numero" /><br />
+                                    <ErrorMessage component="span" name="numero" className="Form_Error" />
+                                </div>
+                                <div className="div_FieldUpdate">
+                                    <Field name="complemento" className="Field_Update" placeholder="Complemento" /><br />
+                                    <ErrorMessage component="span" name="complemento" className="Form_Error" />
+                                </div>
+                                <div className="div_FieldUpdate">
+                                    <Field name="bairro" className="Field_Update" placeholder="Bairro" /><br />
+                                    <ErrorMessage component="span" name="bairro" className="Form_Error" />
+                                </div>
+                                <div className="div_FieldUpdate">
+                                    <Field name="cidade" className="Field_Update" placeholder="Cidade" /><br />
+                                    <ErrorMessage component="span" name="cidade" className="Form_Error" />
+                                </div>
+                                <div className="div_FieldUpdate">
+                                    <Field name="estado" className="Field_Update" placeholder="Estado" /><br />
+                                    <ErrorMessage component="span" name="estado" className="Form_Error" />
+                                </div>
+                                <div className="div_FieldUpdate">
+                                    <Field name="cep" className="Field_Update" placeholder="CEP" /><br />
+                                    <ErrorMessage component="span" name="cep" className="Form_Error" />
+                                </div>
                             </div>
 
 
-                            <div className="campoButao">
-                                <button className="btn_salvar" type="submit">Salvar</button>
-                                <button onClick={() => setModalIsOpen(false)} className="btn_fechar">Fechar</button>
+                            <div className="clienteCampo_modal">
+
+                                <strong>Insira as novas Informações do cliente</strong>
+                                <div className="div_FieldUpdate">
+                                    <Field name="nome" className="Field_Update" placeholder="Nome" /><br />
+                                    <ErrorMessage component="span" name="nome" className="Form_Error" />
+                                </div>
+
+                                <div className="div_FieldUpdate">
+                                    <Field name="usuario" className="Field_Update" placeholder="Usuario" /><br />
+                                    <ErrorMessage component="span" name="usuario" className="Form_Error" />
+                                </div>
+
+                                <div className="div_FieldUpdate">
+                                    <Field name="email" className="Field_Update" placeholder="E-mail" /><br />
+                                    <ErrorMessage component="span" name="email" className="Form_Error" />
+                                </div>
+
+                                <div className="div_FieldUpdate">
+                                    <Field name="cpf" className="Field_Update" placeholder="CPF" /><br />
+                                    <ErrorMessage component="span" name="cpf" className="Form_Error" />
+                                </div>
+                                <div className="div_FieldUpdate">
+                                    <Field name="niver" input type="date" className="Field_Update" placeholder="Aniversário" /><br />
+                                    <ErrorMessage component="span" name="niver" className="Form_Error" />
+                                </div>
+
+
+                                <div className="campoButao">
+                                    <button className="btn_salvar" type="submit">Salvar</button>
+                                    <button onClick={() => setModalIsOpen(false)} className="btn_fechar">Fechar</button>
+                                </div>
                             </div>
-                            </div>  
-                            </Form>
-                        </Formik>
-                    
-                </Modal>
-           
-        </div>
+                        </Form>
+                    </Formik>
+                </div>
+
+            </Modal>
+
+        </>
     )
 }
 

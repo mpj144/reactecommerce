@@ -15,10 +15,10 @@ const ProdutoCadastrar = () => (
             </div>
 
             <div className="div_card">
-               
+                <div className="sub_div">
                     <h2>Cadastrar Produto</h2>
                     <InputCadastrarProduto />
-                
+                </div>
             </div>
 
         </Container>

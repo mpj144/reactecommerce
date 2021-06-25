@@ -30,8 +30,8 @@ const InputEncontarCategoria = () => {
         <>
             <p>Digite o código do Categoria desejado, abaixo!</p>
 
-            <Formik onSubmit={handleSubmit} validationSchema={validations} initialValues={[]} >
-                <Form className="Form">
+            <Formik onSubmit={handleSubmit} validationSchema={validations} initialValues={{ valor: '' }} >
+                <Form className="Form-Funcionario">
                     <div className="caixa">
                         <div className="Form_Group">
                             <Field name="valor" className="Form_Field" />
@@ -40,7 +40,6 @@ const InputEncontarCategoria = () => {
                     </div>
 
                     <button className="Form_Btn" type="submit" onClick={() => setModalIsOpen(true)}>Procurar</button>
-
 
                     <Modal isOpen={Boolean(categorias)} className="Modal_Form">
 

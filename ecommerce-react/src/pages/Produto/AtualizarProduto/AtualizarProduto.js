@@ -15,10 +15,10 @@ const ProdutoAtualizar = () => (
             </div>
 
             <div className="div_card">
-               
+                <div className="sub_div">
                     <h2>Atualizar Produto</h2>
                     <InputAtualizarProduto />
-                
+                </div>
             </div>
 
         </Container>

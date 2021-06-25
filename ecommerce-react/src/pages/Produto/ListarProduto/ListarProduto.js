@@ -8,8 +8,17 @@ const ProdutoListar = () => (
     <>
         <Header />
         <Container>
-            <SubMenuProduto></SubMenuProduto>
-            <TableProdutos />
+
+            <div className="div_sidebar">
+                <SubMenuProduto></SubMenuProduto>
+            </div>
+
+            <div className="div_card">
+                <div className="sub_div">
+                    <h2>Lista de Produtos</h2>
+                    <TableProdutos />
+                </div>
+            </div>
         </Container>
         <Footer />
     </>

@@ -15,21 +15,16 @@ const SubMenuCliente = () => {
 
         <div className="sidebar">
 
-            <Link className={currCount === 0 && 'active'} href="#listar" to="/ListarCliente">
-                <span className={currCount === 0 && 'text-active'}><i class="fas fa-arrow-right"></i>Listar Cliente</span>
+            <Link className={currCount === 0} href="#listar" to="/ListarCliente">
+                <span className={currCount === 0}><i class="fas fa-arrow-right"></i>Listar Cliente</span>
             </Link>
-            <Link className={currCount === 1 && 'active'} href="#achar" to="/EncontrarCliente">
-                <span className={currCount === 1 && 'text-active'}><i class="fas fa-arrow-right"></i>Achar Cliente</span>
+            <Link className={currCount === 1} href="#achar" to="/EncontrarCliente">
+                <span className={currCount === 1}><i class="fas fa-arrow-right"></i>Achar Cliente</span>
             </Link>
-            <Link className={currCount === 2 && 'active'} href="#cadastrar" to="/CadastrarCliente">
-                <span className={currCount === 2 && 'text-active'}><i class="fas fa-arrow-right"></i>Cadastrar Cliente</span>
+            <Link className={currCount === 2} href="#cadastrar" to="/CadastrarCliente">
+                <span className={currCount === 2}><i class="fas fa-arrow-right"></i>Cadastrar Cliente</span>
             </Link>
-            <Link className={currCount === 3 && 'active'} href="#atualizar" to="/AtualizarCliente">
-                <span className={currCount === 3 && 'text-active'}><i class="fas fa-arrow-right"></i>Atualizar Cliente</span>
-            </Link>
-            <Link className={currCount === 4 && 'active'} href="#deleter" to='/DeletarCliente'>
-                <span className={currCount === 4 && 'text-active'}><i class="fas fa-arrow-right"></i>Deletar Cliente</span>
-            </Link>
+
         </div>
 
     )

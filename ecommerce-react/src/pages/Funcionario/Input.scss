@@ -1,41 +1,45 @@
-.Form_Group{
-    height: 9vh;
-    align-self: center;
-    text-align: center;
-}
+.Form-Funcionario{
 
-.Form_Field{
-    border: none;
-    background: rgba(104, 5, 233, 0.50) ;
-    padding: 1rem;
-    font-size: 16px;
-    text-align: center;
-    border-radius: 8px;
-    transition: all 0.2s linear;
-    margin-top: 10px;
-}
+    .Form_Group-Funcionario {
+        height: 9vh;
+        align-self: center;
+        text-align: center;
+    }
 
-.Form_Field:focus{
-    box-shadow: 0 4px 4px rgb(24, 23, 23);
-    outline: none;
-}
+    .Form_Field-Funcionario{
+        border: none;
+        background: rgba(104, 5, 233, 0.50) ;
+        padding: 1rem;
+        font-size: 16px;
+        text-align: center;
+        border-radius: 8px;
+        transition: all 0.2s linear;
+        margin-top: 10px;
+    }
 
-.Form_Error{
-    color: #ff8080; 
-    
-}
+    .Form_Field-Funcionario:focus{
+        box-shadow: 0 4px 4px rgb(24, 23, 23);
+        outline: none;
+    }
 
-.Form_Btn{
-    margin-top: 30px;
-    height: 50px;
-    width: 200px;
-    border-radius: 8px;
-    border: none;
-    background: rgba(104, 5, 233, 0.50);
+    .Form_Error-Funcionario{
+        color: #ff8080; 
+        
+    }
 
-    cursor: pointer;
-}
+    .Form_Btn-Funcionario{
+        margin-top: 30px;
+        height: 50px;
+        width: 200px;
+        border-radius: 8px;
+        border: none;
+        background: rgba(104, 5, 233, 0.50);
 
-.Form_Btn:active{
-    transform: translateY(4px);
+        cursor: pointer;
+    }
+
+    .Form_Btn-Funcionario:active{
+        transform: translateY(4px);
+    }
+
 }
