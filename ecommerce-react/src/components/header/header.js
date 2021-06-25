@@ -11,7 +11,7 @@ import logo from '../../assets/logo.png'
 const Header = () => (
     <header className="app-header">
 
-        <img src={logo} alt="logo" />
+        <img className="logo" src={logo} alt="logo" />
 
         <Menu />
 

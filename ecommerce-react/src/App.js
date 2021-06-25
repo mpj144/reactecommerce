@@ -5,6 +5,9 @@ import Container from './components/container/container';
 
 import Footer from './/components/footer/footer';
 
+
+import PaginatorDemo from './pages/Produto/PaginatorDemo';
+
 const App = () => {
 
   return (
@@ -15,10 +18,14 @@ const App = () => {
         <Container >
 
           <div className="div_card">
+
             <div className="sub_div">
               <h1>Bem-vindo ao e-commerce Group Five!</h1>
-            </div>  
+              <PaginatorDemo></PaginatorDemo>
+            </div> 
+ 
           </div>
+
         </Container>
         <Footer />
       </>
@@ -30,3 +37,5 @@ const App = () => {
 }
 
 export default App;
+
+
