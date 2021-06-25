@@ -11,6 +11,18 @@ const DataTableTemplatingDemo = () => {
     const [products, setProducts] = useState([]);
     const produtoService = new ProdutoService();
 
+    const [cartItens, setCartItens] = useState(() => {
+        const storageCart = localStorage.getItem('carrinhoItens')
+
+        if (storageCart) {
+            return JSON.parse(storageCart)
+        }
+        else {
+            return [];
+        }
+
+    }, []);
+
     useEffect(() => {
         produtoService.getProduto().then(data => setProducts(data));
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -23,14 +35,20 @@ const DataTableTemplatingDemo = () => {
         return <img src={rowData.fotoLink} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={rowData.image} className="product-image" />;
     }
 
+    async function addCartIten(produtoRecebido) {
+
+        setCartItens([...cartItens, produtoRecebido])
+
+    }
+
     const actionTemplate = (rowData, column) => {
         return (
             <>
                 <Button
                     type="button"
                     className="btn_comprar"
+                    onClick={() => addCartIten(rowData)}
                 > <BiCart /> Add Carrinho </Button>
-
             </>
         );
     }
@@ -57,8 +75,17 @@ const DataTableTemplatingDemo = () => {
     //const footer = `In total there are ${products ? products.length : 0} products.`;
 
     return (
+
         <div className="datatable-templating-demo">
+            {localStorage.setItem('carrinhoItens', JSON.stringify(cartItens))}
             <div className="card">
+
+                <Button
+                    type="button"
+                    className="btn_comprar"
+                    onClick={() => localStorage.removeItem('carrinhoItens')}
+                > Limpar Carrinho </Button>
+
                 <DataTable className="tabela" value={products} header={header}>
                     <Column className="coluna" field="nome" header="Nome"></Column>
                     <Column className="coluna" header="Imagem" body={imageBodyTemplate}></Column>

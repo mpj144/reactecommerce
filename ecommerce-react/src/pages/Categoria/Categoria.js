@@ -15,9 +15,9 @@ const Categoria = () => (
     <Header />
     <Container>
 
-    <SubMenuCategoria></SubMenuCategoria>
+      <SubMenuCategoria></SubMenuCategoria>
 
-      <div className={styles.Categoria}>
+      <div >
 
         Categoria Component
 

@@ -16,3 +16,11 @@
 .app-menu__link:hover {
     text-decoration: underline;
 }
+
+.cart_item {
+
+    margin-top: -15%;
+    height: 40px;
+    width: 40px;
+    
+}

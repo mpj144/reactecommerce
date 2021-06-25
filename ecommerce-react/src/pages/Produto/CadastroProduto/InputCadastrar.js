@@ -88,7 +88,7 @@ const InputCadastrarProduto = () => {
 
 
     function OpcaoCategoria({ categoria }) {
-
+        console.log(listCategorias)
         return (
             <option value={categoria.id}>{categoria.nome}</option>
         )
