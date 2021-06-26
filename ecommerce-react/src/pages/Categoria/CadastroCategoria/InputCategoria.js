@@ -5,7 +5,7 @@ import CategoriaService from '../../../services/CategoriaService'
 
 import { ErrorMessage, Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
-//import '../Input.scss'
+
 
 import axios from 'axios'
 
@@ -16,11 +16,11 @@ const InputCadastrarCategoria = () => {
     const handleSubmit = values => {
 
         const data = {
-            nome: values.nome,
+            nome: values.nomecategoria,
             descricao: values.descricao
         }
 
-        console.log(data)
+
 
         categoriaService.createCategoria(data).then((resp) => { history.push('/ListarCategoria') }).catch(error => console.log('Deu errado', error))
     }

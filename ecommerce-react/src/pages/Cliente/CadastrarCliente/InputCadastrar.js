@@ -38,7 +38,7 @@ const InputCadastrarCliente = () => {
 
         console.log('valor da data: ', data)
 
-        clienteService.createCliente(data).then((resp) => alert('Cliente cadastrado com sucesso'), history.push('/ListarCliente')).catch(error => console.log('Deu errado', error))
+        clienteService.createCliente(data).then((resp) => history.push('/ListarCliente')).catch(error => console.log('Deu errado', error))
     }
     const validations = yup.object().shape({
         nome: yup.string()
@@ -46,10 +46,7 @@ const InputCadastrarCliente = () => {
             .max(60, 'Nome deve conter 60 ou menos caracteres')
             .required('Informe o nome'),
         usuario: yup.string().min(6, 'Usuario deve conter 6 ou mais caracteres').required('Escolha um nome de usuário'),
-        email: yup.string()
-            .min(4, 'E-mail deve conter 4 ou mais caracteres')
-            .max(30, 'E-mail deve conter 30 ou menos caracteres')
-            .required('Insira um E-mail'),
+        email: yup.string().email('Insira um email valido').required('Insira um E-mail'),
         cpf: yup
             .string()
             .matches(/^['0'-'1'-'2'-'3'-'4'-'5'-'6'-'7'-'8'-'9']+[''0'-'1'-'2'-'3'-'4'-'5'-'6'-'7'-'8'-'9']$/, 'Só pode conter números!')
@@ -59,12 +56,12 @@ const InputCadastrarCliente = () => {
 
         rua: yup
             .string()
-            .min(4, 'pequeno')
+            .min(4, 'deve conter 4 ate 60 caracteres')
             .max(60, 'grande')
             .required('Campo obrigatório.'),
         numero: yup
             .string()
-            .min(1, 'pequeno')
+            .min(1, 'deve conter 1 ate 20 caracteres')
             .max(20, 'grande')
             .required('Campo obrigatório.'),
         complemento: yup
@@ -75,7 +72,7 @@ const InputCadastrarCliente = () => {
             .max(40, 'grande'),
         cidade: yup
             .string()
-            .min(3, 'pequeno')
+            .min(3, 'deve conter 3 ate 40 caracteres')
             .max(40, 'grande')
             .required('Campo obrigatório.'),
         estado: yup
@@ -86,7 +83,6 @@ const InputCadastrarCliente = () => {
         cep: yup
             .string()
             .required('Campo obrigatório.'),
-
         niver: yup
             .string()
             .required('Coloque uma data')
@@ -125,7 +121,36 @@ const InputCadastrarCliente = () => {
                             <ErrorMessage component="span" name="cidade" className="Form_Error" />
                         </div>
                         <div className="Form_Group">
-                            <Field name="estado" className="Form_Field" placeholder="Estado" /> <br />
+                            <Field name="estado" as="select" className="Form_Field" placeholder="Estado">
+                                <option value="">Selecione um Estado</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </Field> <br />
                             <ErrorMessage component="span" name="estado" className="Form_Error" />
                         </div>
                         <div className="Form_Group">

@@ -3,10 +3,12 @@
     padding: .5rem 2rem;
     text-align: left;
     position: relative;
-    max-width: 1920px;
+    
     bottom: 0;
     height: auto;
     align-items: center;
+
+    width: 1920px;
 }
 
 #criadores{

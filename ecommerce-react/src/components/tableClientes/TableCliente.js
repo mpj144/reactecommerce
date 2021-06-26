@@ -14,7 +14,7 @@ import * as yup from 'yup'
 import Modal from 'react-modal'
 import { Button } from '@material-ui/core';
 
-const TableClientes = (props) => {
+const TableClientes = () => {
     const history = useHistory();
     const [clientes, setClientes] = useState([]);
     const clienteService = new ClienteService();
@@ -93,8 +93,6 @@ const TableClientes = (props) => {
 
         }
 
-        console.log(clienteEdit.id)
-
         clienteService.updateCliente(data, clienteEdit.id).then((res) => { document.location.reload(true) }).catch(error => console.log('Deu errado', error))
     }
 
@@ -103,21 +101,20 @@ const TableClientes = (props) => {
             .min(5, 'Nome deve conter 5 ou mais caracteres')
             .max(60, 'Nome deve conter 60 ou menos caracteres'),
         usuario: yup.string().min(6, 'Usuario deve conter 6 ou mais caracteres'),
-        email: yup.string()
-            .min(4, 'E-mail deve conter 4 ou mais caracteres')
-            .max(30, 'E-mail deve conter 30 ou menos caracteres'),
+        email: yup.string().email('Insira um email valido'),
         cpf: yup
             .string()
             .matches(/^['0'-'1'-'2'-'3'-'4'-'5'-'6'-'7'-'8'-'9']+[''0'-'1'-'2'-'3'-'4'-'5'-'6'-'7'-'8'-'9']$/, 'Só pode conter números!')
             .min(11, 'Número de CPF muito pequeno!')
             .max(11, 'Número de CPF muito grande!'),
+
         rua: yup
             .string()
-            .min(4, 'pequeno')
+            .min(4, 'deve conter 4 ate 60 caracteres')
             .max(60, 'grande'),
         numero: yup
             .string()
-            .min(1, 'pequeno')
+            .min(1, 'deve conter 1 ate 20 caracteres')
             .max(20, 'grande'),
         complemento: yup
             .string()
@@ -127,7 +124,7 @@ const TableClientes = (props) => {
             .max(40, 'grande'),
         cidade: yup
             .string()
-            .min(3, 'pequeno')
+            .min(3, 'deve conter 3 ate 40 caracteres')
             .max(40, 'grande'),
         estado: yup
             .string()
@@ -137,6 +134,7 @@ const TableClientes = (props) => {
             .string(),
         niver: yup
             .string()
+
     });
 
 
@@ -209,7 +207,36 @@ const TableClientes = (props) => {
                                     <ErrorMessage component="span" name="cidade" className="Form_Error" />
                                 </div>
                                 <div className="div_FieldUpdate">
-                                    <Field name="estado" className="Field_Update" placeholder="Estado" /><br />
+                                    <Field name="estado" as="select" className="Field_Update" placeholder="Estado">
+                                        <option value="">Selecione um Estado</option>
+                                        <option value="AC">Acre</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="DF">Distrito Federal</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="TO">Tocantins</option>
+                                    </Field> <br />
                                     <ErrorMessage component="span" name="estado" className="Form_Error" />
                                 </div>
                                 <div className="div_FieldUpdate">

@@ -3,8 +3,8 @@ import Header from '../../components/header/header';
 import Container from '../../components/container/container';
 import Footer from '../../components/footer/footer';
 import CartItens from './CartItens'
+import { Link } from 'react-router-dom';
 
-import { valorTotal } from './CartItens'
 import { Button } from 'primereact/button';
 
 import { BiTrash } from 'react-icons/bi'
@@ -80,7 +80,16 @@ const Cart = () => {
             )
         }
         else {
-            return <h2>Carrinho Vazio</h2>
+            return (
+                <>
+
+                    <h2>Carrinho Vazio</h2>
+                    <strong>
+                        Conheca nossos produtos <Link to='/Produto'> aqui! </Link>
+                    </strong>
+
+                </>
+            )
         }
     }
 

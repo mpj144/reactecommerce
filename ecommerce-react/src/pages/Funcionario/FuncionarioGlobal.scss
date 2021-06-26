@@ -27,7 +27,7 @@
 
         width: 80%;
         
-        height: 1080px;
+        min-height: 1080px;
         max-height: auto;
 
         display: flex;
@@ -36,6 +36,5 @@
         align-items: center;
         align-content: center;
 
-        
     }
 }

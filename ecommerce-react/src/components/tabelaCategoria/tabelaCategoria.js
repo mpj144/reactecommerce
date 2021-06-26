@@ -89,6 +89,9 @@ const TableCategorias = (props) => {
                 <Column field="descricao" header="Descrição" className="card_column_cliente"></Column>
                 <Column body={actionTemplate} header="Acoes" className="card_column_cliente"> </Column>
             </DataTable>
+            <br />
+            <strong className="warning_message" >IMPOSSIVEL APAGAR UMA CATEGORIA QUE TENHA ALGUM PRODUTO CADASTRADO NA MESMA</strong><br />
+            <strong className="warning_message">SE UMA CATEGORIA NAO ESTIVER APAGANDO, VERIFIQUE SE NAO HA ALGUM PRODUTO CADASTRADO NA MESMA</strong>
 
             <Modal isOpen={modalIsOpen} className="update_modal" >
 

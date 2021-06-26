@@ -48,9 +48,6 @@ const InputCadastrarProduto = () => {
         formDataProduto.append('file', element.files[0], 'file')
         formDataProduto.append("produto", produto)
 
-        console.log(jsonData)
-        console.log(formDataProduto.get('document'))
-
         axios.post("https://ecommerce-api-g5.herokuapp.com/produto/comfoto", formDataProduto, {
             headers: {
                 'Accept': 'application/json',
@@ -88,7 +85,6 @@ const InputCadastrarProduto = () => {
 
 
     function OpcaoCategoria({ categoria }) {
-        console.log(listCategorias)
         return (
             <option value={categoria.id}>{categoria.nome}</option>
         )

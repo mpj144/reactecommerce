@@ -34,7 +34,7 @@ const TabelaFuncionarios = (props) => {
 
     function deleteItem(id) {
 
-        funcionarioService.deleteFuncionarioById(id).then(resp => { document.location.reload(true) }).catch(erro => console.log(erro))
+        funcionarioService.deleteFuncionarioById(id).then((resp) => document.location.reload(true)).catch(erro => console.log(erro))
     }
 
     function AtualizarItem(rowData) {
@@ -100,6 +100,10 @@ const TabelaFuncionarios = (props) => {
                 <Column field="cpf" header="CPF" className="card_column"></Column>
                 <Column body={actionTemplate} header="Acoes" className="card_column"> </Column>
             </DataTable>
+
+            <br />
+            <strong className="warning_message">IMPOSSIVEL APAGAR UM FUNCIONARIO QUE TENHA ALGUM PRODUTO CADASTRADO EM SEU NOME</strong><br />
+            <strong className="warning_message">SE UM FUNCIONARIO NAO ESTIVER APAGANDO, VERIFIQUE SE NAO HA ALGUM PRODUTO CADASTRADO EM SEU NOME</strong>
 
             <Modal isOpen={modalIsOpen} className="update_modal" >
 
