@@ -105,57 +105,57 @@ const InputCadastrarCliente = () => {
                     <div className="enderecoCampo">
                         <p>Informações do endereço</p>
                         <div className="Form_Group">
-                            <Field name="rua" className="Form_Field" placeholder="Rua" />
+                            <Field name="rua" className="Form_Field" placeholder="Rua" /> <br />
                             <ErrorMessage component="span" name="rua" className="Form_Error" />
                         </div>
                         <div className="Form_Group">
-                            <Field name="numero" className="Form_Field" placeholder="Numero" />
+                            <Field name="numero" className="Form_Field" placeholder="Numero" /> <br />
                             <ErrorMessage component="span" name="numero" className="Form_Error" />
                         </div>
                         <div className="Form_Group">
-                            <Field name="complemento" className="Form_Field" placeholder="Complemento" />
+                            <Field name="complemento" className="Form_Field" placeholder="Complemento" /> <br />
                             <ErrorMessage component="span" name="complemento" className="Form_Error" />
                         </div>
                         <div className="Form_Group">
-                            <Field name="bairro" className="Form_Field" placeholder="Bairro" />
+                            <Field name="bairro" className="Form_Field" placeholder="Bairro" /> <br />
                             <ErrorMessage component="span" name="bairro" className="Form_Error" />
                         </div>
                         <div className="Form_Group">
-                            <Field name="cidade" className="Form_Field" placeholder="Cidade" />
+                            <Field name="cidade" className="Form_Field" placeholder="Cidade" /> <br />
                             <ErrorMessage component="span" name="cidade" className="Form_Error" />
                         </div>
                         <div className="Form_Group">
-                            <Field name="estado" className="Form_Field" placeholder="Estado" />
+                            <Field name="estado" className="Form_Field" placeholder="Estado" /> <br />
                             <ErrorMessage component="span" name="estado" className="Form_Error" />
                         </div>
                         <div className="Form_Group">
-                            <Field name="cep" className="Form_Field" placeholder="CEP" />
+                            <Field name="cep" className="Form_Field" placeholder="CEP" /> <br />
                             <ErrorMessage component="span" name="cep" className="Form_Error" />
                         </div>
                     </div>
                     <div className="clienteCampo">
                         <p>Informações do Cliente</p>
                         <div className="Form_Group">
-                            <Field name="nome" className="Form_Field" placeholder="Nome" />
+                            <Field name="nome" className="Form_Field" placeholder="Nome" /> <br />
                             <ErrorMessage component="span" name="nome" className="Form_Error" />
                         </div>
 
                         <div className="Form_Group">
-                            <Field name="usuario" className="Form_Field" placeholder="Usuario" />
+                            <Field name="usuario" className="Form_Field" placeholder="Usuario" /> <br />
                             <ErrorMessage component="span" name="usuario" className="Form_Error" />
                         </div>
 
                         <div className="Form_Group">
-                            <Field name="email" className="Form_Field" placeholder="E-mail" />
+                            <Field name="email" className="Form_Field" placeholder="E-mail" /> <br />
                             <ErrorMessage component="span" name="email" className="Form_Error" />
                         </div>
 
                         <div className="Form_Group">
-                            <Field name="cpf" className="Form_Field" placeholder="CPF" />
+                            <Field name="cpf" className="Form_Field" placeholder="CPF" /> <br />
                             <ErrorMessage component="span" name="cpf" className="Form_Error" />
                         </div>
                         <div className="Form_Group">
-                            <Field name="niver" input type="date" className="Form_Field" placeholder="Aniversário" />
+                            <Field name="niver" input type="date" className="Form_Field" placeholder="Aniversário" /> <br />
                             <ErrorMessage component="span" name="niver" className="Form_Error" />
                         </div>
                         <button className="Form_Btn" type="submit">Cadastrar</button>

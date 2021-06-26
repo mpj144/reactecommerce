@@ -22,10 +22,10 @@ const InputCadastrarCategoria = () => {
 
         console.log(data)
 
-        categoriaService.createCategoria(data).then((resp) => alert('Categoria cadastrado com sucesso'), history.push('/ListarCategoria')).catch(error => console.log('Deu errado', error))
+        categoriaService.createCategoria(data).then((resp) => { history.push('/ListarCategoria') }).catch(error => console.log('Deu errado', error))
     }
     const validations = yup.object().shape({
-        nome: yup.string().required('Informe o nome'),
+        nomecategoria: yup.string().min(5, '5 Caracteres no minimo').required('Informe o nome'),
         descricao: yup.string().required('Campo obrigatório.')
     });
 
@@ -37,21 +37,21 @@ const InputCadastrarCategoria = () => {
             <Formik initialValues={{ nome: '', descricao: '' }} onSubmit={handleSubmit} validationSchema={validations}  >
                 <Form className="Form">
 
-                <div className="produtoCampo">
-                    <p>Informações do Produto</p>
+                    <div className="produtoCampo">
+                        <p>Informações do Produto</p>
 
-                    <div className="Form_Group">
-                        <Field name="nome" className="Form_Field" placeholder="Nome" />
-                        <ErrorMessage component="span" name="nomecategoria" className="Form_Error" />
+                        <div className="Form_Group">
+                            <Field name="nomecategoria" className="Form_Field" placeholder="Nome" /> <br />
+                            <ErrorMessage component="span" name="nomecategoria" className="Form_Error" />
+                        </div>
+
+                        <div className="Form_Group">
+                            <Field name="descricao" className="Form_Field" placeholder="descrição" /> <br />
+                            <ErrorMessage component="span" name="descricao" className="Form_Error" />
+                        </div>
+
+                        <button className="Form_Btn" type="submit">Cadastrar</button>
                     </div>
-
-                    <div className="Form_Group">
-                        <Field name="descricao" className="Form_Field" placeholder="descrição" />
-                        <ErrorMessage component="span" name="descricao" className="Form_Error" />
-                    </div>
-
-                    <button className="Form_Btn" type="submit">Cadastrar</button>
-                </div>
                 </Form>
             </Formik>
 

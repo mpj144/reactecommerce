@@ -38,6 +38,7 @@ const DataTableTemplatingDemo = () => {
     async function addCartIten(produtoRecebido) {
 
         setCartItens([...cartItens, produtoRecebido])
+        document.location.reload(true)
 
     }
 
@@ -53,9 +54,13 @@ const DataTableTemplatingDemo = () => {
         );
     }
 
-    //const priceBodyTemplate = (rowData) => {
-    //    return formatCurrency(rowData.valor);
-    //}
+    const priceBodyTemplate = (rowData) => {
+        return formatCurrency(rowData.valor);
+    }
+
+    const formatCurrency = (value) => {
+        return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
 
 
     const ratingBodyTemplate = (rowData) => {
@@ -80,16 +85,11 @@ const DataTableTemplatingDemo = () => {
             {localStorage.setItem('carrinhoItens', JSON.stringify(cartItens))}
             <div className="card">
 
-                <Button
-                    type="button"
-                    className="btn_comprar"
-                    onClick={() => localStorage.removeItem('carrinhoItens')}
-                > Limpar Carrinho </Button>
 
                 <DataTable className="tabela" value={products} header={header}>
                     <Column className="coluna" field="nome" header="Nome"></Column>
                     <Column className="coluna" header="Imagem" body={imageBodyTemplate}></Column>
-                    <Column className="coluna" field="valor" header="Valor"></Column>
+                    <Column className="coluna" body={priceBodyTemplate} header="Valor"></Column>
                     <Column className="coluna" field="nomeCategoria" header="Categoria"></Column>
                     <Column className="coluna" body={actionTemplate} header=""></Column>
                 </DataTable>

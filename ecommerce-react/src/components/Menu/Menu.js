@@ -34,7 +34,7 @@ const Menu = () => {
 
           <li className="app-menu__item">
             <Link className="app-menu__link" to="/Carrinho">
-              <span> {cartItens.length === 1 ? `${cartItens.length} item` : `${cartItens.length} itens`} </span>
+              <span> {cartItens.length === 1 ? `${cartItens.length}` : `${cartItens.length}`} </span>
 
               <img src={cart} alt="" className="cart_item" />
             </Link>
