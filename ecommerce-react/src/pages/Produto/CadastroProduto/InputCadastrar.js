@@ -65,6 +65,19 @@ const InputCadastrarProduto = () => {
             .min(5, 'A descrição deve conter 10 ou mais caracteres')
             .max(60, 'Nome deve conter 100 ou menos caracteres')
             .required('Informe a descricao'),
+        qtdEstoque: yup.number('Somente numero permetido')
+            .min(1, 'Quantidade Minina de 1')
+            .max(10000, 'Quantidade maxima excedida')
+            .required('Insira a quantidae do produto em estoque'),
+        valor: yup.number('Somente numero permetido')
+            .min(1, 'Quantidade Minina de 1')
+            .max(1000000000, 'Quantidade maxima excedida')
+            .required('Insira o valor em reais do produto'),
+        categoria: yup.string().required('Escolha uma categoria'),
+        funcionario: yup.string().required('Escolha um funcionario'),
+        dataFabricacao: yup.date().required('Selecione uma data'),
+        foto: yup.string().required('Selecione uma foto')
+
 
     });
 
@@ -95,35 +108,35 @@ const InputCadastrarProduto = () => {
         <>
 
 
-            <Formik initialValues={{ nome: '', descricao: '', valor: '' }} onSubmit={handleSubmit} validationSchema={validations}  >
-                <Form className="Form" id="formulario">
+            <Formik initialValues={{ nome: '', descricao: '', qtdEstoque: '', valor: '', categoria: '', funcionario: '', dataFabricacao: '', foto: '' }} onSubmit={handleSubmit} validationSchema={validations}  >
+                <Form className="Form-Funcionario" id="formulario">
 
                     <div className="produtoCampo">
                         <p>Informações do Produto</p>
 
-                        <div className="Form_Group">
-                            <Field name="nome" className="Form_Field" placeholder="Nome" />
+                        <div className="Form_Group-Funcionario">
+                            <Field name="nome" className="Form_Field-Funcionario" placeholder="Nome" /> <br />
                             <ErrorMessage component="span" name="nome" className="Form_Error" />
                         </div>
 
-                        <div className="Form_Group">
-                            <Field name="descricao" className="Form_Field" placeholder="Descricao" />
+                        <div className="Form_Group-Funcionario">
+                            <Field name="descricao" className="Form_Field-Funcionario" placeholder="Descricao" /> <br />
                             <ErrorMessage component="span" name="descricao" className="Form_Error" />
                         </div>
 
-                        <div className="Form_Group">
-                            <Field name="qtdEstoque" className="Form_Field" placeholder="Quantidade Estoque" />
+                        <div className="Form_Group-Funcionario">
+                            <Field name="qtdEstoque" type="number" className="Form_Field-Funcionario" placeholder="Quantidade Estoque" /> <br />
                             <ErrorMessage component="span" name="qtdEstoque" className="Form_Error" />
                         </div>
 
-                        <div className="Form_Group">
-                            <Field name="valor" className="Form_Field" placeholder="Valor" />
+                        <div className="Form_Group-Funcionario">
+                            <Field name="valor" type="number" className="Form_Field-Funcionario" placeholder="Valor" /> <br />
                             <ErrorMessage component="span" name="valor" className="Form_Error" />
                         </div>
 
-                        <div className="Form_Group">
-                            <Field name="categoria" as="select" className="Form_Field" placeholder="Categoria" >
-                                <option value="">Selecione uma categoria</option>
+                        <div className="Form_Group-Funcionario">
+                            <Field name="categoria" as="select" className="Form_Field-Funcionario" placeholder="Categoria" > <br />
+                                <option >Selecione uma categoria</option>
 
                                 {listCategorias.map((categoria) => (<OpcaoCategoria categoria={categoria} />))}
 
@@ -131,10 +144,10 @@ const InputCadastrarProduto = () => {
                             <ErrorMessage component="span" name="categoria" className="Form_Error" />
                         </div>
 
-                        <div className="Form_Group">
+                        <div className="Form_Group-Funcionario">
 
-                            <Field name="funcionario" as="select" className="Form_Field" placeholder="Funcionario" >
-                                <option value="">Selecione um funcionario</option>
+                            <Field name="funcionario" as="select" className="Form_Field-Funcionario" placeholder="Funcionario" > <br />
+                                <option >Selecione um funcionario</option>
 
                                 {listFuncionarios.map((funcionario) => (<OpcaoFuncionario funcionario={funcionario} />))}
 
@@ -143,13 +156,13 @@ const InputCadastrarProduto = () => {
                             <ErrorMessage component="span" name="funcionario" className="Form_Error" />
                         </div>
 
-                        <div className="Form_Group">
-                            <Field name="dataFabricacao" input type="date" className="Form_Field" placeholder="Data Fabricacao" />
+                        <div className="Form_Group-Funcionario">
+                            <Field name="dataFabricacao" input type="date" className="Form_Field-Funcionario" placeholder="Data Fabricacao" /> <br />
                             <ErrorMessage component="span" name="dataFabricacao" className="Form_Error" />
                         </div>
 
-                        <div className="Form_Group">
-                            <Field name="foto" type="file" id="image" className="Form_Field" placeholder="Foto" />
+                        <div className="Form_Group-Funcionario">
+                            <Field name="foto" type="file" id="image" className="Form_Field-Funcionario" placeholder="Foto" />  <br />
                             <ErrorMessage component="span" name="foto" className="Form_Error" />
                         </div>
 

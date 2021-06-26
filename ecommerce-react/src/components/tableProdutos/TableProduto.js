@@ -93,11 +93,16 @@ const TableProdutos = (props) => {
         nome: yup.string()
             .min(5, 'Nome deve conter 5 ou mais caracteres')
             .max(60, 'Nome deve conter 60 ou menos caracteres'),
-
         descricao: yup.string()
             .min(5, 'A descrição deve conter 10 ou mais caracteres')
-            .max(60, 'Nome deve conter 100 ou menos caracteres')
-
+            .max(60, 'Nome deve conter 100 ou menos caracteres'),
+        qtdEstoque: yup.number('Somente numero permetido')
+            .min(1, 'Quantidade Minina de 1')
+            .max(10000, 'Quantidade maxima excedida'),
+        valor: yup.number('Somente numero permetido')
+            .min(1, 'Quantidade Minina de 1')
+            .max(1000000000, 'Quantidade maxima excedida'),
+        dataFabricacao: yup.date(),
 
     });
 

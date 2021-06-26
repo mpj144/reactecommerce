@@ -35,7 +35,7 @@ const InputEncontarFuncionario = () => {
                 <Form className="Form-Funcionario">
 
                     <div className="Form_Group-Funcionario">
-                        <Field name="valor" className="Form_Field-Funcionario" /> <br />
+                        <Field name="valor" type="number" className="Form_Field-Funcionario" /> <br />
                         <ErrorMessage component="span" name="valor" className="Form_Error" />
                     </div>
 
